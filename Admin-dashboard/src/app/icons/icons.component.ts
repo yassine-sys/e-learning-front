@@ -12,7 +12,8 @@ export class IconsComponent implements OnInit {
  
   imageUrl: string="/assets/img/1.png";
   fileToUpload: File= null;
-  constructor() { }
+  constructor(private imageService: UploadFileService) { }
+
 
   showNotification(from, align){
     const type = ['','info','success','warning','danger'];
@@ -55,9 +56,13 @@ export class IconsComponent implements OnInit {
     }
     reader.readAsDataURL(this.fileToUpload);
   }
-  OnSubmit(File:any){
-    
-    
+  OnSubmit(Image:any){
+    this.imageService.postFile(this.fileToUpload).subscribe(
+      data=>{
+        Image.value=null;
+        this.imageUrl= "/assets/img/1.png";
+      }
+    );
 
   }
 
