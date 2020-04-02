@@ -1,0 +1,28 @@
+<mat-card>
+    <form #quizForm="ngForm" (ngSubmit)="save(quizForm.value)">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{quiz.value ? 'Edit' : 'Add'}} Quiz </h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <input type="hidden" name="QuizID" [(ngModel)]="quiz.QuizID">
+    <mat-form-field>
+      <input matInput placeholder="Sugar Level Description" [(ngModel)]="quiz.Title" required name="Title">
+    </mat-form-field>
+      <mat-error>
+        Required
+      </mat-error>
+  
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!quizForm.form.valid">Save
+    </button>
+    <button mat-raised-button color="secondary" (click)="remove(quiz.id)" *ngIf="quiz.QuizID" type="button">Delete
+    </button>
+    <a mat-button routerLink="/quiz-list">Cancel</a>
+  </mat-card-actions>
+  <mat-card-footer>
+  </mat-card-footer>
+    </form>
+  </mat-card>
