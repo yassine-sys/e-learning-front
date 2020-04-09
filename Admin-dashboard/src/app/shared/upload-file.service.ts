@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UploadFileService {
 
+ // formData : File;
+
   
   constructor(private http:HttpClient) { }
   postFile(fileToUpload: File){

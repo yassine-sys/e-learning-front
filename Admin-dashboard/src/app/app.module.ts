@@ -32,10 +32,11 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { UploadFileComponent } from './upload-file/upload-file.component';
+
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
 import QuizService from './shared/api/quiz.service';
+import { UploadFileService } from './shared/upload-file.service';
 
 
 
@@ -75,12 +76,14 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    UploadFileComponent,
     QuizListComponent,
     QuizEditComponent,
 
   ],
-  providers: [QuizService],
+  providers: [
+    QuizService,
+    UploadFileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,9 +9,9 @@
                     <div class="col-md-12">
                         <div class="card-body">
                             <div id="instructions">
-                                <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
+                                <video  id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
                                     controls preload="none" poster='assets/img/logo.jpg'
-                                    data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+                                    data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'(timeupdate)="setCurrentTime($event)">
 
                                     <source src="assets/WhatisASPNETWebAPI.mp4" type='video/webm' />
                                 </video>
