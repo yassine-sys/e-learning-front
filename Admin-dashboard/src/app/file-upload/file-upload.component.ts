@@ -2,18 +2,42 @@ import { Component, OnInit } from '@angular/core';
 import { UploadFileService } from 'app/shared/upload-file.service';
 
 declare var $: any;
-@Component({
-  selector: 'app-icons',
-  templateUrl: './icons.component.html',
-  styleUrls: ['./icons.component.css']
-})
-export class IconsComponent implements OnInit {
 
- 
+@Component({
+  selector: 'app-file-upload',
+  templateUrl: './file-upload.component.html',
+  styleUrls: ['./file-upload.component.css']
+})
+export class FileUploadComponent implements OnInit {
+
   imageUrl: string="/assets/img/1.png";
   fileToUpload: File= null;
+
   constructor(private imageService: UploadFileService) { }
 
+  ngOnInit(): void {
+  }
+
+  handleFileInput(file: FileList)
+  {
+    this.fileToUpload=file.item(0);
+    var reader = new FileReader();
+    reader.onload=(event: any)=>
+    {
+      this.imageUrl= event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
+  
+  OnSubmit(Image:any){
+    this.imageService.postFile(this.fileToUpload).subscribe(
+      data=>{
+        Image.value=null;
+        this.imageUrl= "/assets/img/1.png";
+      }
+    );
+
+  }
 
   showNotification(from, align){
     const type = ['','info','success','warning','danger'];
@@ -43,27 +67,5 @@ export class IconsComponent implements OnInit {
         '</div>'
     });
 }
-
-  ngOnInit() {
-  }
-  handleFileInput(file: FileList)
-  {
-    this.fileToUpload=file.item(0);
-    var reader = new FileReader();
-    reader.onload=(event: any)=>
-    {
-      this.imageUrl= event.target.result;
-    }
-    reader.readAsDataURL(this.fileToUpload);
-  }
-  OnSubmit(Image:any){
-    this.imageService.postFile(this.fileToUpload).subscribe(
-      data=>{
-        Image.value=null;
-        this.imageUrl= "/assets/img/1.png";
-      }
-    );
-
-  }
 
 }
