@@ -37,6 +37,8 @@ import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
 import QuizService from './shared/api/quiz.service';
 import { UploadFileService } from './shared/upload-file.service';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { VideoReaderComponent } from './video-reader/video-reader.component';
 
 
 
@@ -78,6 +80,8 @@ const appRoutes: Routes = [
     AdminLayoutComponent,
     QuizListComponent,
     QuizEditComponent,
+    FileUploadComponent,
+    VideoReaderComponent,
 
   ],
   providers: [
