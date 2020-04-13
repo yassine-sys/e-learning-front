@@ -39,6 +39,7 @@ import QuizService from './shared/api/quiz.service';
 import { UploadFileService } from './shared/upload-file.service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { VideoReaderComponent } from './video-reader/video-reader.component';
+import {YouTubePlayerModule} from '@angular/youtube-player';
 
 
 
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
-    AppRoutingModule
+    AppRoutingModule,
+    YouTubePlayerModule
   ],
   declarations: [
     AppComponent,
@@ -81,7 +83,7 @@ const appRoutes: Routes = [
     QuizListComponent,
     QuizEditComponent,
     FileUploadComponent,
-    VideoReaderComponent,
+    VideoReaderComponent
 
   ],
   providers: [
