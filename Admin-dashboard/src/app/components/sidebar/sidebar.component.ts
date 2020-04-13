@@ -14,6 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/typography', title: 'Typography',  icon:'location_on', class: '' },
     { path: '/file-upload', title: 'Upload File',  icon:'library_bookst', class: '' },
     { path: '/video-reader', title: 'Video Reader',  icon:'library_books', class: '' },
+    { path: '/maps', title: 'Video Reader2',  icon:'library_books', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     { path: '/quiz-list', title: 'Quiz List',  icon:'notifications', class: '' }
   

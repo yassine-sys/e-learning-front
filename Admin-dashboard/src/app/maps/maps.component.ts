@@ -24,12 +24,13 @@ export class MapsComponent {
   isPlay: boolean = false;
 
   setCurrentTime(data) {
-    //this.currentTime = data.target.currentTime;
+    this.currentTime = data.target.currentTime;
     console.log(data.target.currentTime);
+    console.log('Progress=' + ((this.currentTime / data.target.duration)*100) + '%');
   }
   toggleVideo(event: any) {
     this.videoplayer.nativeElement.play();
   }
-
+ 
 
 }
