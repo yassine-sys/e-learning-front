@@ -1,0 +1,28 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="col-md-8">
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-info" >
+                <h3 class="card-title" align="center">New Chapter</h3>
+            </div>
+            
+            <form [formGroup]="chapterform" (ngSubmit)="onSubmit()">
+              <input type="hidden" class="form-control" formControlName="CourseID" [ngModel]="courseID">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" formControlName="title" placeholder="" required>
+    
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" formControlName="Description" placeholder=""required>
+  </div>
+  <div class="col-md-12 text-right">
+  <button type="submit" class="btn btn-info" (click)="showNotification('bottom','right')"  [disabled]="!chapterform.valid">Submit</button>
+</div>
+</form>
+        </div>
+    </div>
+  </div>
+</div>
+

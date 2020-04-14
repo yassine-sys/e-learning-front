@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="col-md-8">
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-primary" >
+                <h3 class="card-title" align="center">New Course</h3>
+            </div>
+            <form [formGroup]="courseform" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" formControlName="title" placeholder="" required>
+    
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" formControlName="Description" placeholder=""required>
+  </div>
+
+  <label for="dep">Department</label>
+  <div class="form-group">
+    
+    <select class="custom-select" id="dep" formControlName="DepartmentID">
+      <option disabled value="" >Choose the Department</option>
+      <option *ngFor="let item of DepartmentList"  value="{{item.DepartmentID}}">{{item.Name}}</option>
+     
+    </select>
+  </div>
+
+  
+<!--<div class="form-group">
+  <label for="file">OverViewVideo</label>
+  <input formControlName="OverViewVideo" id="file" type="file" class="form-control"(change)="onFileChanged($event)">
+  </div>-->
+
+  <img [src]="imageUrl"  style="width:250px;height:200px">
+  <input type="file" #Image   accept="image/*" (change)="handleFileInput($event.target.files)">
+  <!--<button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>-->
+
+ <div class="col-md-12 text-right">
+  <button type="submit" class="btn btn-primary" (click)="showNotification('bottom','right')" [disabled]="Image.value=='' || !courseform.valid">Submit</button>
+</div>
+</form>
+        </div>
+    </div>
+  </div>
+</div>

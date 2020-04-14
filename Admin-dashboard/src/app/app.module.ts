@@ -36,6 +36,14 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
 import QuizService from './shared/api/quiz.service';
+import { CoursesListComponent } from './course/courses-list/courses-list.component';
+import { CourseFormComponent } from './course/course-form/course-form.component';
+import { SafeUrl } from '@angular/platform-browser';
+import { ChaptersListComponent } from './chapter/chapters-list/chapters-list.component';
+import { ChapterFormComponent } from './chapter/chapter-form/chapter-form.component';
+import { SectionsListComponent } from './section/sections-list/sections-list.component';
+import { SectionFormComponent } from './section/section-form/section-form.component';
+import { EditCourseComponent } from './course/edit-course/edit-course.component';
 
 
 
@@ -53,6 +61,8 @@ const appRoutes: Routes = [
     path: 'quiz-edit/:QuizID',
     component: QuizEditComponent
   }
+  
+
 ];
 @NgModule({
   imports: [
@@ -78,9 +88,17 @@ const appRoutes: Routes = [
     UploadFileComponent,
     QuizListComponent,
     QuizEditComponent,
+    CoursesListComponent,
+    CourseFormComponent,
+    ChaptersListComponent,
+    ChapterFormComponent,
+    SectionsListComponent,
+    SectionFormComponent,
+    EditCourseComponent,
 
   ],
   providers: [QuizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

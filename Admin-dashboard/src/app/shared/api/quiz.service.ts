@@ -7,7 +7,7 @@ import Quiz from '../models/Quiz'
 
 export default class QuizService {
 
-    public API = 'http://localhost:44306/api';
+    public API = 'https://localhost:44306/api';
     public QUIZ_API = `${this.API}/Quizs`;
 
     constructor(private http: HttpClient) {}
