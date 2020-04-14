@@ -1,0 +1,30 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="col-md-12 left">
+            <a routerLink='/course-form' class="btn btn-primary"><i class="fa fa-plus"></i>Add Course</a>
+        </div>
+        <div class="row ">
+            
+            <div class="col-md-4"  *ngFor="let item of imageList">
+                <a routerLink='/chapters-list/{{item.CourseID}}'>
+                <div class="card card-chart " style="height: 22rem;">
+                    <div class="card-header text-center ">
+                       <!-- <img class="ct-chart" id="AngularChart" src="../../../assets/img/angular.png"> -->
+                       <img class="ct-chart img-fluid"  [src]="item.imageUrl" height="100" width="200"  alt="">
+                    </div>
+                   <div class="card-body">
+                        <h4 class="card-title">{{item.title}}</h4>
+                        <p class="card-category">
+                            {{item.Description}} </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> updated 4 minutes ago
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+            
+        </div>
+  </div>

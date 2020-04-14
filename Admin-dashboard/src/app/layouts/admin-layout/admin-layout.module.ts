@@ -17,7 +17,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-import { FileUploadComponent } from 'app/file-upload/file-upload.component';
+import { CoursesListComponent } from 'app/course/courses-list/courses-list.component';
 
 @NgModule({
   imports: [
@@ -37,6 +37,7 @@ import { FileUploadComponent } from 'app/file-upload/file-upload.component';
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
+    
     IconsComponent,
     MapsComponent,
     NotificationsComponent,

@@ -36,9 +36,15 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
 import QuizService from './shared/api/quiz.service';
+import { CoursesListComponent } from './course/courses-list/courses-list.component';
+import { CourseFormComponent } from './course/course-form/course-form.component';
+import { SafeUrl } from '@angular/platform-browser';
+import { ChaptersListComponent } from './chapter/chapters-list/chapters-list.component';
+import { ChapterFormComponent } from './chapter/chapter-form/chapter-form.component';
+import { SectionsListComponent } from './section/sections-list/sections-list.component';
+import { SectionFormComponent } from './section/section-form/section-form.component';
+import { EditCourseComponent } from './course/edit-course/edit-course.component';
 import { UploadFileService } from './shared/upload-file.service';
-import { FileUploadComponent } from './file-upload/file-upload.component';
-import { VideoReaderComponent } from './video-reader/video-reader.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -58,6 +64,8 @@ const appRoutes: Routes = [
     path: 'quiz-edit/:QuizID',
     component: QuizEditComponent
   }
+  
+
 ];
 @NgModule({
   imports: [
@@ -84,8 +92,13 @@ const appRoutes: Routes = [
     AdminLayoutComponent,
     QuizListComponent,
     QuizEditComponent,
-    FileUploadComponent,
-    VideoReaderComponent
+    CoursesListComponent,
+    CourseFormComponent,
+    ChaptersListComponent,
+    ChapterFormComponent,
+    SectionsListComponent,
+    SectionFormComponent,
+    EditCourseComponent,
 
   ],
   providers: [
@@ -95,3 +108,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
