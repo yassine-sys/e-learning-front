@@ -41,7 +41,7 @@ import { CoursesListComponent } from 'app/course/courses-list/courses-list.compo
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent,
+    UpgradeComponent
   ]
 })
 

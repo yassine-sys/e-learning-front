@@ -32,7 +32,7 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { UploadFileComponent } from './upload-file/upload-file.component';
+
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
 import QuizService from './shared/api/quiz.service';
@@ -44,6 +44,9 @@ import { ChapterFormComponent } from './chapter/chapter-form/chapter-form.compon
 import { SectionsListComponent } from './section/sections-list/sections-list.component';
 import { SectionFormComponent } from './section/section-form/section-form.component';
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
+import { UploadFileService } from './shared/upload-file.service';
+import {YouTubePlayerModule} from '@angular/youtube-player';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 
@@ -80,12 +83,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
-    AppRoutingModule
+    AppRoutingModule,
+    YouTubePlayerModule,
+    NgxExtendedPdfViewerModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    UploadFileComponent,
     QuizListComponent,
     QuizEditComponent,
     CoursesListComponent,
@@ -97,7 +101,10 @@ const appRoutes: Routes = [
     EditCourseComponent,
 
   ],
-  providers: [QuizService],
+  providers: [
+    QuizService,
+    UploadFileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
