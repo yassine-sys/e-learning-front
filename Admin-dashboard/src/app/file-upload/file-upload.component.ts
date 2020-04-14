@@ -10,10 +10,10 @@ declare var $: any;
 })
 export class FileUploadComponent implements OnInit {
 
-  imageUrl: string="/assets/img/1.png";
+  fileUrl: string="/assets/img/1.png";
   fileToUpload: File= null;
 
-  constructor(private imageService: UploadFileService) { }
+  constructor(private fileService: UploadFileService) { }
 
   ngOnInit(): void {
   }
@@ -24,16 +24,16 @@ export class FileUploadComponent implements OnInit {
     var reader = new FileReader();
     reader.onload=(event: any)=>
     {
-      this.imageUrl= event.target.result;
+      this.fileUrl= event.target.result;
     }
     reader.readAsDataURL(this.fileToUpload);
   }
   
-  OnSubmit(Image:any){
-    this.imageService.postFile(this.fileToUpload).subscribe(
+  OnSubmit(f:any){
+    this.fileService.postFile(this.fileToUpload).subscribe(
       data=>{
-        Image.value=null;
-        this.imageUrl= "/assets/img/1.png";
+        f.value=null;
+        this.fileUrl= "/assets/img/1.png";
       }
     );
 

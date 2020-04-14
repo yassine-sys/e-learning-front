@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-reader.component.css']
 })
 export class VideoReaderComponent implements OnInit {
+
+  pdfSrc = "assets/example.pdf";
  
 
   constructor() { }
@@ -35,7 +37,7 @@ export class VideoReaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.video = 'vN9NRqv7xmY';
+    this.video = 'jYvkMv7LzCw';
     this.init();
   }
 

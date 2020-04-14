@@ -14,7 +14,11 @@ interface Marker {
   styleUrls: ['./maps.component.css']
 })
 export class MapsComponent {
-  currentTime: number
+  currentTime: number;
+  Progress: number;
+  Duration: number;
+  public player: any;
+  
 
   constructor() { }
 
@@ -25,9 +29,24 @@ export class MapsComponent {
 
   setCurrentTime(data) {
     this.currentTime = data.target.currentTime;
-    console.log(data.target.currentTime);
-    console.log('Progress=' + ((this.currentTime / data.target.duration)*100) + '%');
+    console.log('current Time=' + this.currentTime);
+    this.Duration = data.target.duration;
+    this.Progress=((this.currentTime / this.Duration)*100);
+    console.log('Progress=' + this.Progress + '%');
+    console.log('----------------------');
+     return this.currentTime;
   }
+
+  setProgress(data) {
+    this.Duration = data.target.duration;
+    this.Progress=((this.currentTime / this.Duration)*100);
+    console.log('Progress=' + this.Progress + '%');
+    return this.Progress;
+  }
+
+  
+
+
   toggleVideo(event: any) {
     this.videoplayer.nativeElement.play();
   }

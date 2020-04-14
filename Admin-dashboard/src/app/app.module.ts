@@ -40,6 +40,7 @@ import { UploadFileService } from './shared/upload-file.service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { VideoReaderComponent } from './video-reader/video-reader.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 
@@ -75,7 +76,8 @@ const appRoutes: Routes = [
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
     AppRoutingModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    NgxExtendedPdfViewerModule
   ],
   declarations: [
     AppComponent,
