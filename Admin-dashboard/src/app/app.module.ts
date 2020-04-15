@@ -47,7 +47,6 @@ import { EditCourseComponent } from './course/edit-course/edit-course.component'
 import { UploadFileService } from './shared/upload-file.service';
 import {YouTubePlayerModule} from '@angular/youtube-player';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 
@@ -70,6 +69,7 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   imports: [
+    NgxExtendedPdfViewerModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
@@ -86,8 +86,7 @@ const appRoutes: Routes = [
     OwlNativeDateTimeModule,  
     AppRoutingModule,
     YouTubePlayerModule,
-    NgxExtendedPdfViewerModule,
-    PdfViewerModule
+    
   ],
   declarations: [
     AppComponent,
