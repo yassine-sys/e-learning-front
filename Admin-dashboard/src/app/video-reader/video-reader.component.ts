@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoReaderComponent implements OnInit {
 
-  pdfSrc = "assets/example.pdf";
+  pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
  
 
   constructor() { }

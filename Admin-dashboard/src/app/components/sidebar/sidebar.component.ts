@@ -16,7 +16,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'UploadFile',  icon:'bubble_chart', class: '' },
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: '/quiz-list', title: 'Quiz List',  icon:'notifications', class: '' }
+    { path: '/quiz-list', title: 'Quiz List',  icon:'notifications', class: '' },
+    { path: '/video-reader', title: 'Video',  icon:'notifications', class: '' },
+
+    
   
 ];
 
