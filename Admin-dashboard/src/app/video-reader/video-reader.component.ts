@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
 
 @Component({
   selector: 'app-video-reader',
   templateUrl: './video-reader.component.html',
-  styleUrls: ['./video-reader.component.css']
+  styleUrls: ['./video-reader.component.css'],
+  providers: [NgxExtendedPdfViewerModule]
+
 })
 export class VideoReaderComponent implements OnInit {
 
-  pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
+  pdfSrc = "assets/example.pdf";
  
 
   constructor() { }

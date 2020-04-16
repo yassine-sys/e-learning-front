@@ -13,11 +13,13 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
     { path: '/courses-list', title: 'Courses List',  icon:'reorder', class: '' },
-    { path: '/icons', title: 'UploadFile',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
+    { path: '/icons', title: 'icons',  icon:'bubble_chart', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     { path: '/quiz-list', title: 'Quiz List',  icon:'notifications', class: '' },
-    { path: '/video-reader', title: 'Video',  icon:'notifications', class: '' },
+    { path: '/video-reader', title: 'Video',  icon:'library_books', class: '' },
+    { path: '/maps', title: 'Video 2',  icon:'library_books', class: '' },
+
+
 
     
   

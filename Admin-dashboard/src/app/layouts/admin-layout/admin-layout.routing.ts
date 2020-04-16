@@ -16,6 +16,7 @@ import { ChapterFormComponent } from 'app/chapter/chapter-form/chapter-form.comp
 import {SectionsListComponent} from 'app/section/sections-list/sections-list.component';
 import {SectionFormComponent} from 'app/section/section-form/section-form.component';
 import { VideoReaderComponent } from 'app/video-reader/video-reader.component';
+import { FileUploadComponent } from 'app/file-upload/file-upload.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -76,6 +77,8 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'chapter-form/:id',    component:ChapterFormComponent},
     {path: 'sections-list/:id',   component:SectionsListComponent},
     {path: 'section-form/:id',   component:SectionFormComponent},
-    {path: 'video-reader',   component:VideoReaderComponent},
+    { path: 'video-reader',   component:VideoReaderComponent},
+    { path: 'file-upload',   component:FileUploadComponent},
+
 
 ];
