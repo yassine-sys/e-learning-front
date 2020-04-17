@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class VideoReaderComponent implements OnInit {
 
   pdfSrc = "assets/example.pdf";
+  
  
 
   constructor() { }
@@ -39,6 +40,7 @@ export class VideoReaderComponent implements OnInit {
   ngOnInit(): void {
     this.video = 'jYvkMv7LzCw';
     this.init();
+    
   }
 
   startVideo() {
@@ -53,7 +55,8 @@ export class VideoReaderComponent implements OnInit {
         rel: 0,
         showinfo: 0,
         fs: 0,
-        playsinline: 1
+        playsinline: 1,
+        origin:'https://www.youtube.com/iframe_api'
 
       },
       events: {

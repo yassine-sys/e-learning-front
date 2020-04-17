@@ -47,6 +47,11 @@ import { EditCourseComponent } from './course/edit-course/edit-course.component'
 import { UploadFileService } from './shared/upload-file.service';
 import {YouTubePlayerModule} from '@angular/youtube-player';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import{VideoReaderComponent} from './video-reader/video-reader.component';
+import { ParagraphsListComponent } from './paragraph/paragraphs-list/paragraphs-list.component';
+import { ParagraphFormComponent } from './paragraph/paragraph-form/paragraph-form.component';
+
 
 
 
@@ -85,7 +90,8 @@ const appRoutes: Routes = [
     OwlNativeDateTimeModule,  
     AppRoutingModule,
     YouTubePlayerModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    PdfViewerModule
   ],
   declarations: [
     AppComponent,
@@ -99,6 +105,9 @@ const appRoutes: Routes = [
     SectionsListComponent,
     SectionFormComponent,
     EditCourseComponent,
+    VideoReaderComponent,
+    ParagraphsListComponent,
+    ParagraphFormComponent,
 
   ],
   providers: [
