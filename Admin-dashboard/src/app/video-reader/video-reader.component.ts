@@ -11,7 +11,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 })
 export class VideoReaderComponent implements OnInit {
 
-  pdfSrc = "assets/example.pdf";
+  pdfSrc = "assets/example.pdf";  /* PDF*/
  
 
   constructor() { }

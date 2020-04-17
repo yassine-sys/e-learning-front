@@ -45,7 +45,8 @@
     "jquery": "3.4.1",
     "moment": "2.24.0",
     "ng-pick-datetime": "^7.0.0",
-    "ngx-extended-pdf-viewer": "^3.1.0",
+    "ngx-extended-pdf-viewer": "^3.0.0",
+    "npm-install-all": "^1.1.21",
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.15.0",
     "rxjs": "6.5.2",
@@ -74,7 +75,7 @@
     "karma-jasmine-html-reporter": "1.5.2",
     "protractor": "5.4.3",
     "ts-node": "8.6.2",
-    "tslint": "^6.1.1",
+    "tslint": "6.0.0",
     "typescript": "3.7.5"
   }
 }
