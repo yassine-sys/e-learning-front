@@ -1,9 +1,9 @@
+import Question from "./Question";
+
 export default class Quiz {
 
-QuizID: number;
+QuizID: number ;
 Title: string;
-
-
 
 
 }

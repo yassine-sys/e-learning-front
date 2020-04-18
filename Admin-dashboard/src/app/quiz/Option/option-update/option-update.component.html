@@ -1,0 +1,43 @@
+
+  <div class="main-content">
+
+    <div class="container-fluid">
+      <form [formGroup]="optionForm" autocomplete="off" novalidate (ngSubmit)="updateOption(optionForm.value)">
+        <div class="form-horizontal well">
+            <input type="hidden" class="form-control" formControlName="QuesID" [ngModel]="QuesID">
+
+          <div class="form-group">
+            <label for="optionText" class="control-label col-md-2"> New Option : </label>
+            <div class="col-md-5">
+             <input type="text" formControlName="OptionText" id="OptionText" class="form-control" />
+            </div>
+            <div class="col-md-5">
+             <em *ngIf="validateControl('OptionText') && hasError('optionText', 'required')">Name is required</em>
+              <em *ngIf="validateControl('OptionText') && hasError('optionText', 'maxlength')">Maximum allowed length is 60 characters.</em>
+            </div>
+          </div>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Values</mat-label>
+            <mat-select formControlName="values" >
+              <mat-option *ngFor="let valeur of values" [value]="valeur">
+                {{valeur}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+     <div class="form-group">
+        <div class="col-md-offset-5 col-md-1">
+            <button type="submit" class="btn btn-info" [disabled]="!optionForm.valid">Update</button>
+        </div>
+        <div class="col-md-1">
+           <button type="button" class="btn btn-danger" (click)="redirectToOptionsList()">Cancel</button>
+        </div>
+     </div>
+              
+        </div>
+      </form>
+    
+    
+    </div>
+        </div>
