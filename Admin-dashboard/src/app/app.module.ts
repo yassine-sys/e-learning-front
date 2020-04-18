@@ -1,6 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -45,8 +44,10 @@ import { SectionsListComponent } from './section/sections-list/sections-list.com
 import { SectionFormComponent } from './section/section-form/section-form.component';
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
 import { UploadFileService } from './shared/upload-file.service';
-import {YouTubePlayerModule} from '@angular/youtube-player';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VideoReaderComponent } from './video-reader/video-reader.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   imports: [
+    NgxExtendedPdfViewerModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
@@ -83,9 +85,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
-    AppRoutingModule,
-    YouTubePlayerModule,
-    NgxExtendedPdfViewerModule
+    AppRoutingModule
+    
   ],
   declarations: [
     AppComponent,
@@ -99,6 +100,8 @@ const appRoutes: Routes = [
     SectionsListComponent,
     SectionFormComponent,
     EditCourseComponent,
+    VideoReaderComponent,
+    FileUploadComponent,
 
   ],
   providers: [

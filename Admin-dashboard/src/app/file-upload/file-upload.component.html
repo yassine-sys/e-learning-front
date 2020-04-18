@@ -8,12 +8,29 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card-body">
-              <form #fileForm=ngForm (ngSubmit)="OnSubmit(File)">
+
+              <form #fileForm=ngForm (ngSubmit)="OnSubmit(File,title,description)">
+                <div class="form-group">
+                  <label for="title">File Title</label>
+                  <input type="text" #title ngModel name="title" id="title" class="form-control" placeholder=""
+                    required>
+                </div>
+
                 <img [src]="fileUrl" style="width:130px;height:130px">
                 <input type="file" #File accept="file/*" (change)="handleFileInput($event.target.files)">
-                <button mat-raised-button type="submit" class="btn btn-info " (click)="showNotification('top','right')"
-                  [disabled]="File.value=='' || !fileForm.valid"> Submit
-                </button>
+
+                <div class="form-group">
+                  <label for="description">File Description</label>
+                  <input type="text" #description ngModel name="description" id="description" class="form-control"
+                    placeholder="" required>
+                </div>
+
+                <div class="col-md-12 text-right">
+                  <button mat-raised-button type="submit" class="btn btn-info "
+                    (click)="showNotification('top','right')" [disabled]="File.value=='' || !fileForm.valid">
+                    Submit</button>
+                </div>
+
               </form>
             </div>
           </div>

@@ -8,7 +8,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-body">
-                            <div id="player">
+                            <div id="instructions">
+                                <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
+                                    controls preload="none" poster='assets/img/logo.jpg'
+                                    data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'
+                                    (timeupdate)="setCurrentTime($event)">
+
+                                    <source [src]="fileSrc" type='video/webm' />
+                                </video>
 
                             </div>
                         </div>
@@ -22,11 +29,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-body">
-                            <ngx-extended-pdf-viewer [src]="pdfSrc" useBrowserLocale="true" height="80vh">
-                                [textLayer]="false"
-                                [showHandToolButton]="false"
-                                [height]="'90vh'">
-                            </ngx-extended-pdf-viewer>
+                            <ngx-extended-pdf-viewer [src]="pdfSrc" useBrowserLocale="true" height="80vh"></ngx-extended-pdf-viewer>
+
 
                         </div>
                     </div>
