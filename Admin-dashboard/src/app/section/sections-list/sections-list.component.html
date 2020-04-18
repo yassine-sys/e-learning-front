@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="col-md-12 left">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">  
+                      <li class="breadcrumb-item"><a routerLink='/courses-list'>{{SectionDetailList[0]?.course.title}} </a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><a routerLink='/chapters-list/{{SectionDetailList[0]?.course.CourseID}}'>{{SectionDetailList[0]?.chapter.title}} /</a></li>
+                    </ol>
+                  </nav>
+            </div>
+        
+            <a routerLink='/section-form/{{chapterID}}' class="btn btn-success"><i class="fa fa-plus"></i>Add Section</a>
+        </div>
+        <div class="row ">
+            <div class="col-md-4 " *ngFor="let item of SectionList" >
+                
+                <div class="card card-chart ">
+                    <div class="card-header text-center ">
+                       <!-- <img class="ct-chart" id="AngularChart" src="../../../assets/img/angular.png"> -->
+                       <!--<img class="ct-chart img-fluid"  [src]="item.imageUrl" height="200" width="200"  alt="">-->
+                    </div>
+                   <div class="card-body">
+                        <h4 class="card-title">{{item.title}}</h4>
+                        <p class="card-category">
+                           {{item.Description }} </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> updated 4 minutes ago
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            
+        </div>
+  </div>

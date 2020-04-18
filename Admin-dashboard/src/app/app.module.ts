@@ -1,6 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -31,6 +30,7 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+<<<<<<< HEAD
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { QuizListComponent } from './quiz/Quiz/quiz-dashboard/quiz-list.component';
 import { ResultComponent } from './result/result.component';
@@ -62,11 +62,33 @@ import { ExamListComponent } from './exam/Exam/exam-list/exam-list.component';
 import { CreateExamComponent } from './exam/Exam/create-exam/create-exam.component';
 import { UpdateExamComponent } from './exam/Exam/update-exam/update-exam.component';
 import { DeleteExamComponent } from './exam/Exam/delete-exam/delete-exam.component';
+=======
+
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
+import QuizService from './shared/api/quiz.service';
+import { CoursesListComponent } from './course/courses-list/courses-list.component';
+import { CourseFormComponent } from './course/course-form/course-form.component';
+import { SafeUrl } from '@angular/platform-browser';
+import { ChaptersListComponent } from './chapter/chapters-list/chapters-list.component';
+import { ChapterFormComponent } from './chapter/chapter-form/chapter-form.component';
+import { SectionsListComponent } from './section/sections-list/sections-list.component';
+import { SectionFormComponent } from './section/section-form/section-form.component';
+import { EditCourseComponent } from './course/edit-course/edit-course.component';
+import { UploadFileService } from './shared/upload-file.service';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VideoReaderComponent } from './video-reader/video-reader.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+
+
+>>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
 
 const appRoutes: Routes = [
  {
     path: 'quiz-dashboard',
     component: QuizListComponent
+<<<<<<< HEAD
   },{
       path: 'create-quiz',
       component: CreateQuizComponent
@@ -124,15 +146,32 @@ const appRoutes: Routes = [
   },{  
     path: 'update/:QuesID/option-list', 
     component: OptionListComponent}
+=======
+  },
+  {
+    path: 'quiz-add',
+    component: QuizEditComponent
+  },
+  {
+    path: 'quiz-edit/:QuizID',
+    component: QuizEditComponent
+  }
+  
+
+>>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
 ];
 
 @NgModule({
   imports: [
+<<<<<<< HEAD
     MatFormFieldModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatSortModule,
     MatDialogModule,
+=======
+    NgxExtendedPdfViewerModule,
+>>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
@@ -148,6 +187,7 @@ const appRoutes: Routes = [
     ComponentsModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
+<<<<<<< HEAD
     AppRoutingModule,
     MatPaginatorModule,
     MatDatepickerModule,
@@ -155,12 +195,16 @@ const appRoutes: Routes = [
     MatSelectModule,
     RouterModule.forRoot(appRoutes),
 
+=======
+    AppRoutingModule
+    
+>>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    UploadFileComponent,
     QuizListComponent,
+<<<<<<< HEAD
     ResultComponent,
     CreateQuizComponent,
     CreateQuestionComponent,
@@ -190,4 +234,25 @@ export class Question {}
 export class Exam {}
 export class Result {}
 export class Option {}
+=======
+    QuizEditComponent,
+    CoursesListComponent,
+    CourseFormComponent,
+    ChaptersListComponent,
+    ChapterFormComponent,
+    SectionsListComponent,
+    SectionFormComponent,
+    EditCourseComponent,
+    VideoReaderComponent,
+    FileUploadComponent,
+
+  ],
+  providers: [
+    QuizService,
+    UploadFileService
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+>>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
 
