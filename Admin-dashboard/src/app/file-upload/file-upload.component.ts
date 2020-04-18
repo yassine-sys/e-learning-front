@@ -21,6 +21,7 @@ export class FileUploadComponent implements OnInit {
   handleFileInput(file: FileList)
   {
     this.fileToUpload=file.item(0);
+    //file preview 
     var reader = new FileReader();
     reader.onload=(event: any)=>
     {
@@ -29,8 +30,8 @@ export class FileUploadComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
   }
   
-  OnSubmit(f:any){
-    this.fileService.postFile(this.fileToUpload).subscribe(
+  OnSubmit(f:any, title:any, description:any){
+    this.fileService.postFile(this.fileToUpload, title.value,  description.value).subscribe(
       data=>{
         f.value=null;
         this.fileUrl= "/assets/img/1.png";

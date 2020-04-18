@@ -77,8 +77,8 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'chapter-form/:id',    component:ChapterFormComponent},
     {path: 'sections-list/:id',   component:SectionsListComponent},
     {path: 'section-form/:id',   component:SectionFormComponent},
-    { path: 'video-reader',   component:VideoReaderComponent},
     { path: 'file-upload',   component:FileUploadComponent},
+    { path: 'video-reader',   component:VideoReaderComponent},
 
 
 ];
