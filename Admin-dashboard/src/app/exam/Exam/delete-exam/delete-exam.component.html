@@ -1,0 +1,32 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10 well">
+    
+          <div class="row">
+            <div class="col-md-3">
+              <label for="name" class="control-label">Exam Title:</label>
+            </div>
+            <div class="col-md-7">
+              <span name="Title">
+                {{exam?.Title}}
+              </span>
+            </div>
+          </div>
+           
+     
+        </div>
+      </div>
+      <br>
+    
+    <div class="row">
+      <div class="col-md-offset-8 col-md-1">
+        <button type="submit" class="btn btn-info" (click)="deleteExam()">Delete</button>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-danger" (click)="redirectToExamsList()">Cancel</button>
+      </div>
+    </div>
+    </div>
+    
+    </div>

@@ -16,15 +16,14 @@ export const ROUTES: RouteInfo[] = [
     { path: '/courses-list', title: 'Courses List',  icon:'reorder', class: '' },
     { path: '/icons', title: 'icons',  icon:'bubble_chart', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+    { path: '/quiz-dashboard', title: 'Manage Quizzes',  icon:'content_paste', class: '' },
+    { path: '/exam-dashboard', title: 'Manage Exams',  icon:'content_paste', class: '' },
+    { path: '/users-dashboard', title: 'Users Dashboard',  icon: 'dashboard', class: '' },
     { path: '/quiz-list', title: 'Quiz List',  icon:'notifications', class: '' },
    // { path: '/video-reader', title: 'Video',  icon:'library_books', class: '' },
-    { path: '/file-upload', title: 'file-upload',  icon:'library_books', class: '' },
+    { path: '/file-upload', title: 'file-upload',  icon:'library_books', class: '' }
 
 
-
-
-    
-  
 ];
 
 @Component({

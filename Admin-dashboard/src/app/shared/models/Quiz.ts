@@ -1,9 +1,9 @@
+
 export default class Quiz {
 
-QuizID: number;
+QuizID: string ;
+CourseID : string;
 Title: string;
-
-
 
 
 }

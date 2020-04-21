@@ -1,0 +1,32 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10 well">
+    
+          <div class="row">
+            <div class="col-md-3">
+              <label for="name" class="control-label">Question name:</label>
+            </div>
+            <div class="col-md-7">
+              <span name="Title">
+                {{question?.QuesText}}
+              </span>
+            </div>
+          </div>
+           
+     
+        </div>
+      </div>
+      <br>
+    
+    <div class="row">
+      <div class="col-md-offset-8 col-md-1">
+        <button type="submit" class="btn btn-success" (click)="deleteQuestion()">Delete</button>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-info" (click)="redirectToQuestionsList()">Cancel</button>
+      </div>
+    </div>
+    </div>
+    
+    </div>

@@ -1,0 +1,46 @@
+<div class="main-content">
+
+  <section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Create a new Option</mat-card-title>
+        <form [formGroup]="optionForm" autocomplete="off" novalidate (ngSubmit)="createOption(optionForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+        <mat-card-content>
+
+          <mat-form-field>
+            <input matInput type="text" placeholder="Option" formControlName="OptionText" id="OptionText">
+            <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+            <mat-error *ngIf="hasError('OptionText', 'required')">Name is required</mat-error>
+            <mat-error *ngIf="hasError('OptionText', 'maxlength')">You have more than 60 characters</mat-error>
+          </mat-form-field>  
+                  
+
+          <mat-form-field appearance="fill">
+            <mat-label>Values</mat-label>
+            <mat-select formControlName="values" >
+              <mat-option *ngFor="let valeur of values" [value]="valeur">
+                {{valeur}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>    
+                     
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button class="btn btn-success" [disabled]="!optionForm.valid" >Create</button>
+          <button type="button" mat-raised-button class="btn btn-info" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+
+      </form>
+      </mat-card>
+  </section>
+  </div>
+
+
+
+
+
+
+
+
+
+

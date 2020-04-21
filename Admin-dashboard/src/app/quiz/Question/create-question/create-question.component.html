@@ -1,0 +1,49 @@
+<div class="main-content">
+
+  <section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Create a new Question</mat-card-title>
+        <form [formGroup]="questionForm" autocomplete="off" novalidate (ngSubmit)="createQuestion(questionForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+        <mat-card-content>
+
+          <mat-form-field>
+            <input matInput type="text" placeholder="Question's text" formControlName="QuesText" id="QuesText">
+            <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+            <mat-error *ngIf="hasError('QuesText', 'required')">Name is required</mat-error>
+            <mat-error *ngIf="hasError('QuesText', 'maxlength')">You have more than 60 characters</mat-error>
+          </mat-form-field>  
+
+ 
+         <mat-form-field appearance="fill">
+            <mat-label>Values</mat-label>
+            <mat-select formControlName="types" >
+              <mat-option *ngFor="let type of types" [value]="type">
+                {{type}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> 
+                    
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button class="btn btn-success" [disabled]="!questionForm.valid" >Create</button>
+          <button type="button" mat-raised-button class="btn btn-info" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+
+      </form>
+      </mat-card>
+  </section>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
