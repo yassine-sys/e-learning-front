@@ -16,6 +16,7 @@ import { ChapterFormComponent } from 'app/chapter/chapter-form/chapter-form.comp
 import {SectionsListComponent} from 'app/section/sections-list/sections-list.component';
 import {SectionFormComponent} from 'app/section/section-form/section-form.component';
 import { VideoReaderComponent } from 'app/video-reader/video-reader.component';
+<<<<<<< HEAD
 import { FileUploadComponent } from 'app/file-upload/file-upload.component';
 import { QuizListComponent } from 'app/quiz/Quiz/quiz-dashboard/quiz-list.component';
 import { CreateQuizComponent } from 'app/quiz/Quiz/create-quiz/create-quiz.component';
@@ -33,6 +34,11 @@ import { CreateOptionComponent } from 'app/quiz/Option/create-option/create-opti
 import { OptionDeleteComponent } from 'app/quiz/Option/option-delete/option-delete.component';
 import { OptionUpdateComponent } from 'app/quiz/Option/option-update/option-update.component';
 import { OptionListComponent } from 'app/quiz/Option/option-list/option-list.component';
+=======
+import { ParagraphsListComponent } from '../../paragraph/paragraphs-list/paragraphs-list.component';
+import { ParagraphFormComponent } from '../../paragraph/paragraph-form/paragraph-form.component';
+import {FileUploadComponent} from '../../file-upload/file-upload.component';
+>>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -81,6 +87,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
+    { path: 'file-upload',     component: FileUploadComponent },
+    { path: 'video-reader',     component: VideoReaderComponent },
     { path: 'courses-list',   component: CoursesListComponent },
     {path: 'course-form',     component:CourseFormComponent},
     {path: 'edit-course/:id',     component:EditCourseComponent},
@@ -93,6 +101,7 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'chapter-form/:id',    component:ChapterFormComponent},
     {path: 'sections-list/:id',   component:SectionsListComponent},
     {path: 'section-form/:id',   component:SectionFormComponent},
+<<<<<<< HEAD
     { path: 'file-upload',   component:FileUploadComponent},
     { path: 'video-reader',   component:VideoReaderComponent},
     {
@@ -157,4 +166,8 @@ export const AdminLayoutRoutes: Routes = [
         component: OptionListComponent}
 
 
+=======
+    {path: 'paragraphs-list/:id',   component:ParagraphsListComponent},
+    {path: 'paragraph-form/:id',   component:ParagraphFormComponent},
+>>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
 ];
