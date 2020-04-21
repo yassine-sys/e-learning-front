@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from 'app/shared/dialogs/success-dialog/success-dialog.component';
+import Quiz from 'app/shared/models/Quiz';
  
 @Component({
   selector: 'app-create-question',
@@ -20,20 +21,29 @@ export class CreateQuestionComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private dialog: MatDialog) { }
-
+    types = ["Single choice", "Multichoice"];
     public questionForm: FormGroup;
     private dialogConfig;
     id : string = this.activeRoute.snapshot.paramMap.get('QuizID');
-  
-   
-    private routeSub: Subscription;
+    public question = new Question();
     
+
+  quizz : any = {
+      QuizID : this.id
+   }
+    public tab : any = [this.quizz];
+
+
   ngOnInit() {
-    console.log(this.id);
- 
-    this.questionForm = new FormGroup({
-      QuizID: new FormControl('', [Validators.required]),
-      QuesText: new FormControl('', [Validators.required, Validators.maxLength(60)])
+         
+    /*this.repository.SendMessage.subscribe((data:any) => 
+    { console.log('message',data[0]); 
+      this.question.Quizzes = data;}); */
+    
+     this.questionForm = new FormGroup({
+      QuesText: new FormControl('', [Validators.required, Validators.maxLength(60)]),
+      types: new FormControl(this.types)
+
     });
 
     this.dialogConfig = {
@@ -59,31 +69,25 @@ export class CreateQuestionComponent implements OnInit {
     }
   }
  
-  private executeQuestionCreation = (questionFormValue) => {
-    let question: Question = {
-      QuesID: questionFormValue.QuesID,
-      QuizID: questionFormValue.QuizID,
-      QuesText: questionFormValue.QuesText
+  private executeQuestionCreation = (questionFormValue) => {    
 
-    }
-
-    let apiUrl = `api/Questions`;
-
-    this.repository.create(apiUrl,question)
-      .subscribe(res => {
-        
+     this.question.QuesID= questionFormValue.QuesID;
+     this.question.types= questionFormValue.types;
+     this.question.QuesText= questionFormValue.QuesText;
+     this.question.Quizzes = this.tab;
+    this.repository.postAllQuizQuestions(this.question)
+      .subscribe(res => {       
         let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
          dialogRef.afterClosed()
           .subscribe(result => {
-            this.router.navigate([`update/${this.id}/question-list`]);
-
+            this.router.navigate([`quiz/${this.id}/question-list`]);           
       },
       (error => {
         this.location.back();
       })
     )
-  })
+  });
  
-}
+    }
 
-}
+  }

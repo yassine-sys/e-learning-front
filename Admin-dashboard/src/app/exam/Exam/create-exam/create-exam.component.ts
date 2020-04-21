@@ -23,6 +23,7 @@ export class CreateExamComponent implements OnInit {
 
   ngOnInit() {
     this.examForm = new FormGroup({
+       CourseID : new FormControl(''),
        Title : new FormControl('', [Validators.required, Validators.maxLength(60)])
     })
 
@@ -50,6 +51,7 @@ export class CreateExamComponent implements OnInit {
   private executeExamCreation = (examFormValue) => {
     let exam: Exam = {
       ExamID: examFormValue.ExamID,
+      CourseID: examFormValue.CourseID,
       Title: examFormValue.Title      
     } 
     

@@ -21,6 +21,11 @@ export class UpdateExamComponent implements OnInit {
   private dialogConfig;
   Examid : string = this.activeRoute.snapshot.paramMap.get('ExamID');
 
+/*  public myexam  : any = {
+    ExamID : this.Examid
+ }
+  public message = [this.myexam] ;*/
+
 
 
   constructor(private repository: RepositoryService, 
@@ -30,7 +35,18 @@ export class UpdateExamComponent implements OnInit {
               ) { }
 
   ngOnInit() {
+
+        
+    /*this.repository.SendMessage.subscribe( data => 
+      { data = this.message[0];
+        console.log('examid',data); 
+       });
+
+    this.repository.SendMessage.next(this.message);     */
+
+      
     this.examForm = new FormGroup({
+      CourseID:  new FormControl(''),
       Title: new FormControl('', [Validators.required, Validators.maxLength(60)])
 
     });
@@ -38,10 +54,7 @@ export class UpdateExamComponent implements OnInit {
     this.getExamById();
   }
 
-  private getExamById() {
-    //let questionsByQuizIDUrl: string = `api/Questions/Quizs/${this.id}`;   
-
-        
+  private getExamById() {       
       let ExamByIdUrl: string = `api/Exams/${this.Examid}`;   
       this.repository.getData(ExamByIdUrl)
         .subscribe(res => {
@@ -78,7 +91,7 @@ public updateExam(examFormValue) {
  
 private executeExamUpdate(examFormValue) {
 
-  this.exam.ExamID = examFormValue.ExamID;
+  this.exam.CourseID = examFormValue.CourseID;
   this.exam.Title = examFormValue.Title;
 
   let apiUrl = `api/Exams/${this.Examid}`;
@@ -88,8 +101,7 @@ private executeExamUpdate(examFormValue) {
       //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
 dialogRef.afterClosed()
 .subscribe(result => {
-  this.router.navigate([`/update/${this.Examid}/question-list`]);
-   
+  this.router.navigate([`/exam/${this.Examid}/question-list`]);   
 });
 }) }
 

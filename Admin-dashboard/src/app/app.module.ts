@@ -30,8 +30,6 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-<<<<<<< HEAD
-import { UploadFileComponent } from './upload-file/upload-file.component';
 import { QuizListComponent } from './quiz/Quiz/quiz-dashboard/quiz-list.component';
 import { ResultComponent } from './result/result.component';
 import { CreateQuizComponent } from './quiz/Quiz/create-quiz/create-quiz.component';
@@ -62,11 +60,7 @@ import { ExamListComponent } from './exam/Exam/exam-list/exam-list.component';
 import { CreateExamComponent } from './exam/Exam/create-exam/create-exam.component';
 import { UpdateExamComponent } from './exam/Exam/update-exam/update-exam.component';
 import { DeleteExamComponent } from './exam/Exam/delete-exam/delete-exam.component';
-=======
 
-import { QuizListComponent } from './quiz-list/quiz-list.component';
-import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
-import QuizService from './shared/api/quiz.service';
 import { CoursesListComponent } from './course/courses-list/courses-list.component';
 import { CourseFormComponent } from './course/course-form/course-form.component';
 import { SafeUrl } from '@angular/platform-browser';
@@ -76,102 +70,92 @@ import { SectionsListComponent } from './section/sections-list/sections-list.com
 import { SectionFormComponent } from './section/section-form/section-form.component';
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
 import { UploadFileService } from './shared/upload-file.service';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideoReaderComponent } from './video-reader/video-reader.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { CourseService } from './shared/course.service';
+import { SectionService } from './shared/section.service';
+import { DepartmentService } from './shared/department.service';
+import { ChapterService } from './shared/chapter.service';
+import { ExamQuestionListComponent } from './exam/Question/exam-question-list/exam-question-list.component';
+import { UpdateExamQuestionComponent } from './exam/Question/update-exam-question/update-exam-question.component';
+import { DeleteExamQuestionComponent } from './exam/Question/delete-exam-question/delete-exam-question.component';
+import { CreateExamQuestionComponent } from './exam/Question/create-exam-question/create-exam-question.component';
+import { CreateExamOptionComponent } from './exam/Option/create-exam-option/create-exam-option.component';
+import { DeleteExamOptionComponent } from './exam/Option/delete-exam-option/delete-exam-option.component';
+import { UpdateExamOptionComponent } from './exam/Option/update-exam-option/update-exam-option.component';
+import { ExamOptionListComponent } from './exam/Option/exam-option-list/exam-option-list.component';
+import { UsersDashboardComponent } from './users-dashboard/users-dashboard.component';
+import { UsersQuizzesComponent } from './users-quizzes/users-quizzes.component';
+import { UsersExamsComponent } from './users-exams/users-exams.component';
 
 
->>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
 
 const appRoutes: Routes = [
- {
-    path: 'quiz-dashboard',
-    component: QuizListComponent
-<<<<<<< HEAD
-  },{
-      path: 'create-quiz',
-      component: CreateQuizComponent
-  },{ 
-    path: 'delete/:QuizID', 
-    component: QuizDeleteComponent
-  },{ 
-    path: 'update/:QuizID', 
-    component: QuizUpdateComponent
-  },{ 
-    path: 'exam-dashboard', 
-    component: ExamListComponent
-  },{
-    path: 'create-exam',
-    component: CreateExamComponent
-  },{ 
-    path: 'update/:ResID/:ExamID', 
-    component: UpdateExamComponent
-  },{
-    path: 'delete/:ExamID',
-    component: DeleteExamComponent
-  },{
-    path: 'create-question/:QuizID',
-    component: CreateQuestionComponent
-  },{
-    path: 'create-question/:ExamID',
-    component: CreateQuestionComponent
-  },{ 
-    path: 'update/:QuizID/question-list', 
-    component: QuestionListComponent
-  },{ 
-    path: 'update/:ExamID/question-list', 
-    component: QuestionListComponent
-  },{ 
-    path: 'update/:ExamID/update/:QuesID', 
-    component: QuestionUpdateComponent
-  },{ 
-    path: 'update/:QuizID/update/:QuesID', 
-    component: QuestionUpdateComponent
-  },{ 
-    path: 'delete/:QuizID/delete/:QuesID', 
-    component: QuestionDeleteComponent
-  },{ 
-    path: 'delete/:ExamID/delete/:QuesID', 
-    component: QuestionDeleteComponent
-  },{
-    path: 'create-option/:QuesID', 
-    component: CreateOptionComponent
-  },{
-    path: 'option/delete/:QuesID/delete/:OpID', 
-    component: OptionDeleteComponent
-  },{  
-    path: 'option/update/:QuesID/update/:OpID', 
-    component: OptionUpdateComponent
-  },{  
-    path: 'update/:QuesID/option-list', 
-    component: OptionListComponent}
-=======
-  },
-  {
-    path: 'quiz-add',
-    component: QuizEditComponent
-  },
-  {
-    path: 'quiz-edit/:QuizID',
-    component: QuizEditComponent
-  }
-  
-
->>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
+{
+    path: 'quiz-dashboard', component: QuizListComponent
+},{
+    path: 'create-quiz/:CourseID', component: CreateQuizComponent
+},{ 
+    path: 'quiz/delete/:QuizID', component: QuizDeleteComponent
+},{ 
+    path: 'quiz/update/:QuizID', component: QuizUpdateComponent
+},{
+    path: 'quiz/create-question/:QuizID',component: CreateQuestionComponent
+},{ 
+    path: 'quiz/:QuizID/update/:QuesID', component: QuestionUpdateComponent
+},{ 
+    path: 'quiz/:QuizID/delete/:QuesID', component: QuestionDeleteComponent
+},{ 
+    path: 'quiz/:QuizID/question-list', component: QuestionListComponent
+},{
+    path: 'exam-dashboard', component: ExamListComponent
+},{   
+    path: 'create-exam/:CourseID',component: CreateExamComponent
+},{ 
+    path: 'exam/update/:ExamID', component: UpdateExamComponent
+},{
+    path: 'exam/delete/:ExamID',component: DeleteExamComponent
+},{ 
+    path: 'exam/:ExamID/delete/:QuesID', component: DeleteExamQuestionComponent
+},{
+    path: 'exam/create-question/:ExamID', component: CreateExamQuestionComponent
+},{ 
+    path: 'exam/:ExamID/question-list',component: ExamQuestionListComponent
+},{ 
+    path: 'exam/:ExamID/update/:QuesID', component: UpdateExamQuestionComponent
+},{
+    path: 'quiz/create-option/:QuesID', component: CreateOptionComponent
+},{
+    path: 'quiz/option/:QuesID/delete/:OpID', component: OptionDeleteComponent
+},{  
+    path: 'quiz/option/:QuesID/update/:OpID', component: OptionUpdateComponent
+},{  
+    path: 'quiz/:QuesID/option-list', component: OptionListComponent  
+},{ 
+    path: 'exam/create-option/:QuesID', component: CreateExamOptionComponent
+},{
+    path: 'exam/option/:QuesID/delete/:OpID', component: DeleteExamOptionComponent
+},{  
+    path: 'exam/option/:QuesID/update/:OpID', component: UpdateExamOptionComponent
+},{  
+    path: 'exam/:QuesID/option-list', component: ExamOptionListComponent
+},{  
+    path: 'users-dashboard', component: UsersDashboardComponent
+},{  
+    path: 'user-quizzes/:Id', component: UsersQuizzesComponent
+},{
+    path: 'user-exams/:Id', component: UsersExamsComponent
+}
 ];
 
 @NgModule({
   imports: [
-<<<<<<< HEAD
     MatFormFieldModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatSortModule,
     MatDialogModule,
-=======
-    NgxExtendedPdfViewerModule,
->>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
@@ -187,55 +171,38 @@ const appRoutes: Routes = [
     ComponentsModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
-<<<<<<< HEAD
     AppRoutingModule,
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatDialogModule,
     RouterModule.forRoot(appRoutes),
-
-=======
     AppRoutingModule
-    
->>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
-  ],
+ ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     QuizListComponent,
-<<<<<<< HEAD
-    ResultComponent,
-    CreateQuizComponent,
-    CreateQuestionComponent,
-    SuccessDialogComponent,
-    ErrorDialogComponent,
     QuizUpdateComponent,
     QuizDeleteComponent,
+    CreateQuizComponent,
     QuestionListComponent,
+    ResultComponent,
     QuestionUpdateComponent,
-    QuestionDeleteComponent,
-    CreateOptionComponent,
-    OptionDeleteComponent,
-    OptionUpdateComponent,
+    CreateQuestionComponent,
+    CreateQuestionComponent,
     OptionListComponent,
+    OptionUpdateComponent,
+    OptionDeleteComponent,
+    CreateOptionComponent,
     ExamListComponent,
     CreateExamComponent,
+    DeleteExamComponent,
     UpdateExamComponent,
-    DeleteExamComponent
-  ],
-  providers: [ EnvironmentUrlService, 
-              RepositoryService],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-export class Quiz {}
-export class Question {}
-export class Exam {}
-export class Result {}
-export class Option {}
-=======
-    QuizEditComponent,
+    ResultComponent,
+    SuccessDialogComponent,
+    ErrorDialogComponent,
     CoursesListComponent,
     CourseFormComponent,
     ChaptersListComponent,
@@ -245,14 +212,25 @@ export class Option {}
     EditCourseComponent,
     VideoReaderComponent,
     FileUploadComponent,
+    ExamQuestionListComponent,
+    UpdateExamQuestionComponent,
+    DeleteExamQuestionComponent,
+    CreateExamQuestionComponent,
+    CreateExamOptionComponent,
+    DeleteExamOptionComponent,
+    UpdateExamOptionComponent,
+    ExamOptionListComponent,
+    UsersDashboardComponent,
+    UsersQuizzesComponent,
+    UsersExamsComponent,
 
   ],
   providers: [
-    QuizService,
-    UploadFileService
+    
+    UploadFileService, RepositoryService,CourseService, 
+    SectionService, DepartmentService, ChapterService,EnvironmentUrlService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
->>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
 

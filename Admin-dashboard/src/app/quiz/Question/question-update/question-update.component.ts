@@ -19,7 +19,8 @@ export class QuestionUpdateComponent implements OnInit {
   private dialogConfig;
   id : string = this.activeRoute.snapshot.paramMap.get('QuesID');
   QuizId : string = this.activeRoute.snapshot.paramMap.get('QuizID');
-
+  types = ["Single choice", "Multichoice"];
+  
 
   constructor(private repository: RepositoryService, 
               private router: Router,
@@ -28,9 +29,11 @@ export class QuestionUpdateComponent implements OnInit {
               ) { }
 
   ngOnInit() {
+ 
     this.questionForm = new FormGroup({
-      QuizID: new FormControl('', [Validators.required]),
-      QuesText: new FormControl('', [Validators.required, Validators.maxLength(60)])
+      QuesText: new FormControl('', [Validators.required, Validators.maxLength(150)]),
+      types: new FormControl(this.types)
+
      
     });
    
@@ -38,9 +41,7 @@ export class QuestionUpdateComponent implements OnInit {
   }
 
   private getQuestionById() {
-    //let questionsByQuizIDUrl: string = `api/Questions/Quizs/${this.id}`;   
-
-        
+     
       let QuestionByIdUrl: string = `api/Questions/${this.id}`;   
       this.repository.getData(QuestionByIdUrl)
         .subscribe(res => {
@@ -66,7 +67,7 @@ public hasError(controlName: string, errorName: string) {
 
  
 public redirectToQuestionsList(){
-  this.router.navigate([`/update/${this.QuizId}/question-list`]);
+  this.router.navigate([`/quiz/update/${this.QuizId}/question-list`]);
 }
 
 public updateQuestion(questionFormValue) {
@@ -75,10 +76,10 @@ public updateQuestion(questionFormValue) {
   }
 }
  
-private executeQuestionUpdate(quizFormValue) {
+private executeQuestionUpdate(questionFormValue) {
 
-  this.question.QuizID = quizFormValue.QuizID;
-  this.question.QuesText = quizFormValue.QuesText;
+  this.question.QuesText = questionFormValue.QuesText;
+  this.question.types = questionFormValue.types;
 
   let apiUrl = `api/Questions/${this.id}`;
   this.repository.update(apiUrl, this.question)
@@ -87,7 +88,8 @@ private executeQuestionUpdate(quizFormValue) {
       //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
 dialogRef.afterClosed()
 .subscribe(result => {
-  this.router.navigate([`/update/${this.id}/option-list`]);
+  
+  this.router.navigate([`/quiz/${this.id}/option-list`]);
    
 });
 }) }

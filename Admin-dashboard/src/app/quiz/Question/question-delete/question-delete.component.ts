@@ -20,8 +20,8 @@ export class QuestionDeleteComponent implements OnInit {
   private dialogConfig;
   id : string = this.activeRoute.snapshot.paramMap.get('QuesID');
   QuizId : string = this.activeRoute.snapshot.paramMap.get('QuizID');
-
-
+  title : string = this.activeRoute.snapshot.paramMap.get('Title');
+  CId : string = this.activeRoute.snapshot.paramMap.get('CourseID');
 
   constructor(private repository: RepositoryService, 
     private router: Router,
@@ -59,8 +59,9 @@ export class QuestionDeleteComponent implements OnInit {
 
 
   public redirectToQuestionsList() {
-    this.router.navigate([`/update/${this.QuizId}/question-list`]);
+    this.router.navigate([`quiz/${this.QuizId}/${this.title}/${this.CId}/question-list`]);
   }
+
 
   public deleteQuestion( ) {
     let deleteUrl: string = `api/Questions/${this.id}`;
@@ -70,7 +71,7 @@ export class QuestionDeleteComponent implements OnInit {
           //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
     dialogRef.afterClosed()
     .subscribe(result => {
-      this.router.navigate([`/update/${this.QuizId}/question-list`]);
+      this.router.navigate([`quiz/${this.QuizId}/question-list`]);
 
     });
       })

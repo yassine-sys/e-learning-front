@@ -15,22 +15,11 @@ export const ROUTES: RouteInfo[] = [
     { path: '/courses-list', title: 'Courses List',  icon:'reorder', class: '' },
     { path: '/icons', title: 'icons',  icon:'bubble_chart', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-<<<<<<< HEAD
-    { path: '/quiz-dashboard', title: 'Quizzes Dashboard',  icon:'notifications', class: '' },
-    { path: '/exam-dashboard', title: 'Exams Dashboard',  icon:'notifications', class: '' }
+    { path: '/quiz-dashboard', title: 'Manage Quizzes',  icon:'content_paste', class: '' },
+    { path: '/exam-dashboard', title: 'Manage Exams',  icon:'content_paste', class: '' },
+    { path: '/users-dashboard', title: 'Users Dashboard',  icon: 'dashboard', class: '' }
 
 
-=======
-    { path: '/quiz-list', title: 'Quiz List',  icon:'notifications', class: '' },
-    { path: '/video-reader', title: 'Video',  icon:'library_books', class: '' },
-    { path: '/file-upload', title: 'file-upload',  icon:'library_books', class: '' },
-
-
-
-
-    
-  
->>>>>>> 35f786a2d1b0f5930e6c90b6610d5eb4f03e7d87
 ];
 
 @Component({

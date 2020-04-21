@@ -1,0 +1,45 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+      <form [formGroup]="questionForm" autocomplete="off" novalidate (ngSubmit)="updateQuestion(questionForm.value)">
+        <div class="form-horizontal well">
+   
+          <div class="form-group">
+            <label for="QuesText" class="control-label col-md-2"> New Question </label>
+            <div class="col-md-5">
+
+             <input type="text" formControlName="QuesText" id="QuesText" class="form-control" />
+            </div>
+            <div class="col-md-5">
+             <em *ngIf="validateControl('QuesText') && hasError('QuesText', 'required')">Name is required</em>
+              <em *ngIf="validateControl('QuesText') && hasError('QuesText', 'maxlength')">Maximum allowed length is 60 characters.</em>
+            </div>
+          </div>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Values</mat-label>
+            <mat-select formControlName="types" >
+              <mat-option *ngFor="let type of types" [value]="type">
+                {{type}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> 
+
+
+    
+          <br><br>
+     <div class="form-group">
+        <div class="col-md-offset-5 col-md-1">
+            <button type="submit" class="btn btn-success" [disabled]="!questionForm.valid">Update</button>
+        </div>
+        <div class="col-md-1">
+           <button type="button" class="btn btn-info" (click)="redirectToQuestionsList()">Cancel</button>
+        </div>
+     </div>
+              
+        </div>
+      </form>
+    
+    
+    </div>
+        </div>

@@ -17,7 +17,14 @@ export class QuizUpdateComponent implements OnInit {
   public quiz: Quiz;
   public quizForm: FormGroup;
   private dialogConfig;
+  
   id : string = this.activeRoute.snapshot.paramMap.get('QuizID');
+
+  data : any;
+  /*public message = [this.quizz] ;
+  public quizz  : any = {
+    QuizID : this.id
+ }*/
 
   constructor(private repository: RepositoryService, 
               private router: Router,
@@ -26,17 +33,26 @@ export class QuizUpdateComponent implements OnInit {
               ) { }
 
   ngOnInit() {
+    
+    /*this.repository.SendMessage.subscribe( data => 
+      { data = this.message[0];
+        console.log('quizid',data); 
+       });
+      
+    this.repository.SendMessage.next(this.message);     */
+
     this.quizForm = new FormGroup({
-      Title: new FormControl('', [Validators.required, Validators.maxLength(60)])
-           
+      QuizID:  new FormControl('', [Validators.required]),
+      CourseID:  new FormControl('', [Validators.required]),
+      Title: new FormControl('', [Validators.required, Validators.maxLength(60)])          
     });
-   
+
+
+
     this.getQuizById();
   }
 
   private getQuizById() {
-    //let questionsByQuizIDUrl: string = `api/Questions/Quizs/${this.id}`;   
-
         
       let QuizByIdUrl: string = `api/Quizs/${this.id}`;   
       this.repository.getData(QuizByIdUrl)
@@ -46,6 +62,12 @@ export class QuizUpdateComponent implements OnInit {
          
   })
 }
+
+updatedata(newdata :any) {
+  this.repository.changeMessage(newdata);
+  //console.log('hello',newdata);
+}
+
 
 public validateControl(controlName: string) {
   if (this.quizForm.controls[controlName].invalid && this.quizForm.controls[controlName].touched)
@@ -75,6 +97,8 @@ public updateQuiz(quizFormValue) {
 private executeQuizUpdate(quizFormValue) {
 
   this.quiz.Title = quizFormValue.Title;
+  this.quiz.CourseID= quizFormValue.CourseID;
+
   let apiUrl = `api/Quizs/${this.id}`;
   this.repository.update(apiUrl, this.quiz)
     .subscribe(res => {
@@ -82,7 +106,7 @@ private executeQuizUpdate(quizFormValue) {
       //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
 dialogRef.afterClosed()
 .subscribe(result => {
-  this.router.navigate([`/update/${this.id}/question-list`]);
+     this.router.navigate([`/quiz/${this.id}/question-list`]);
    
 });
 }) }

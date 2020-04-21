@@ -1,7 +1,7 @@
 export default class Result {
   
     ResID: number;
-    UserId: string;;
+    ExamID: number;;
     Score : number;
 
 }

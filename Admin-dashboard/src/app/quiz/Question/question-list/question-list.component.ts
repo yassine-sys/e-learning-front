@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class QuestionListComponent implements OnInit {
 
   
-  public displayedColumns = ['QuesText', 'update', 'delete'];
+  public displayedColumns = ['QuesText', 'types', 'update', 'delete'];
   public dataSource = new MatTableDataSource<Question>();
   public errorMessage: string = '';
 
@@ -30,41 +30,36 @@ export class QuestionListComponent implements OnInit {
 
   id : string = this.activeRoute.snapshot.paramMap.get('QuizID');
 
-  ngOnInit() {
 
-    console.log(this.id);
-    
+  ngOnInit() { 
     this.repository.getQuestionsByQuizID(this.id).subscribe(result => {
       this.dataSource.data = result;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       console.log(result);
-    })
-
+    });
   }
 
-public redirectToUpdatePage (id : any) {
 
-let updateUrl: string = `update/${this.id}/update/${id}`; 
+public redirectToUpdatePage (id : any) {
+let updateUrl: string = `quiz/${this.id}/update/${id}`; 
 this.router.navigate([updateUrl]);
 }
 
 public redirectToDeletePage (id : any) {
-let deleteUrl: string = `delete/${this.id}/delete/${id}`;
+let deleteUrl: string = `quiz/${this.id}/delete/${id}`;
 this.router.navigate([deleteUrl]);
 }
 
 public redirectToCreateQuestion() {
 
-let cearteQuestionUrl: string = `create-question/${this.id}`;
+let cearteQuestionUrl: string = `quiz/create-question/${this.id}`;
 this.router.navigate([cearteQuestionUrl]);
-
-
 }
-
 
 public doFilter = (value: string) => {
   this.dataSource.filter = value.trim().toLocaleLowerCase();
 }
+
 
 }

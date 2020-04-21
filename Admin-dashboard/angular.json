@@ -18,12 +18,7 @@
             "polyfills": "src/polyfills.ts",
             "assets": [
               "src/assets",
-              "src/favicon.ico",
-              {
-                "glob": "**/*",
-                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
-                "output": "/assets/"
-              }
+              "src/favicon.ico"
             ],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
@@ -38,10 +33,7 @@
               "node_modules/moment/moment.js",
               "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
               "node_modules/bootstrap-notify/bootstrap-notify.js",
-              "node_modules/chartist/dist/chartist.js",
-              "node_modules/ngx-extended-pdf-viewer/assets/pdf.js",
-              "node_modules/ngx-extended-pdf-viewer/assets/pdf.worker.js",
-              "node_modules/ngx-extended-pdf-viewer/assets/viewer.js"
+              "node_modules/chartist/dist/chartist.js"
             ]
           },
           "configurations": {
@@ -96,10 +88,7 @@
               "node_modules/moment/moment.js",
               "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
               "node_modules/bootstrap-notify/bootstrap-notify.js",
-              "node_modules/chartist/dist/chartist.js",
-              "node_modules/ngx-extended-pdf-viewer/assets/pdf.js",
-              "node_modules/ngx-extended-pdf-viewer/assets/pdf.worker.js",
-              "node_modules/ngx-extended-pdf-viewer/assets/viewer.js"
+              "node_modules/chartist/dist/chartist.js"
             ],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
@@ -108,12 +97,7 @@
             ],
             "assets": [
               "src/assets",
-              "src/favicon.ico",
-              {
-                "glob": "**/*",
-                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
-                "output": "/assets/"
-              }
+              "src/favicon.ico"
             ]
           }
         },

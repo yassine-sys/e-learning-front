@@ -14,7 +14,7 @@ import { RepositoryService } from 'app/shared/api/repository.service';
 })
 export class OptionListComponent implements OnInit {
 
-  public displayedColumns = ['OptionText', 'update', 'delete'];
+  public displayedColumns = ['OptionText', 'values', 'update', 'delete'];
   public dataSource = new MatTableDataSource<Option>();
   public errorMessage: string = '';
 
@@ -27,14 +27,24 @@ export class OptionListComponent implements OnInit {
     private repository: RepositoryService,
     private activeRoute: ActivatedRoute,
     private router: Router) { }
-
-
   id : string = this.activeRoute.snapshot.paramMap.get('QuesID');
+  
+  /*public myquestion  : any = {
+    QuesID : this.id }
 
+  public message = [this.myquestion] ;*/
+  
   ngOnInit() {
 
-    console.log(this.id);
+    //console.log(this.id);
+
+    /*this.repository.SendMessage.subscribe( data => 
+      { data = this.message[0];
+        console.log('cc',data); 
+       });
     
+    this.repository.SendMessage.next(this.message);  */   
+
     this.repository.getOptionsByQuesID(this.id).subscribe(result => {
       this.dataSource.data = result;
       this.dataSource.sort = this.sort;
@@ -46,22 +56,20 @@ export class OptionListComponent implements OnInit {
 
 public redirectToUpdatePage (id : any) {
 
-let updateUrl: string = `option/update/${this.id}/update/${id}`; 
+let updateUrl: string = `quiz/option/${this.id}/update/${id}`; 
 this.router.navigate([updateUrl]);
 }
 
 public redirectToDeletePage (id : any) {
-let deleteUrl: string = `option/delete/${this.id}/delete/${id}`;
+let deleteUrl: string = `quiz/option/${this.id}/delete/${id}`;
 this.router.navigate([deleteUrl]);
 }
 
 public redirectToCreateOption() {
 
-let cearteOptionUrl: string = `create-option/${this.id}`;
+let cearteOptionUrl: string = `quiz/create-option/${this.id}`;
 this.router.navigate([cearteOptionUrl]);
-
 }
-
 
 public doFilter = (value: string) => {
   this.dataSource.filter = value.trim().toLocaleLowerCase();

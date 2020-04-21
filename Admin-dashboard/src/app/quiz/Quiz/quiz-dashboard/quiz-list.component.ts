@@ -14,7 +14,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class QuizListComponent implements OnInit {
 
-  public displayedColumns = ['Title', 'update', 'delete'];
+  public displayedColumns = ['Title', 'course', 'update', 'delete'];
   public dataSource = new MatTableDataSource<Quiz>();
   public errorMessage: string = '';
 
@@ -22,17 +22,12 @@ export class QuizListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   data: any;
-  id : string = this.activeRoute.snapshot.paramMap.get('QuizID');
-
   constructor(private repository: RepositoryService,
-              private router: Router,
-              private activeRoute: ActivatedRoute) { }
+              private router: Router) { }
          
   ngOnInit() {
-
-    //this.getAllQuizzes();
     
-    this.repository.getAllQuizzes().subscribe((data: any) => {
+      this.repository.getAllQuizzes().subscribe((data: any) => {
       this.dataSource.data = data as Quiz[];
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -43,12 +38,12 @@ export class QuizListComponent implements OnInit {
 
 public redirectToUpdatePage (id : any) {
   
-  let updateUrl: string = `/update/${id}`;
+  let updateUrl: string = `quiz/update/${id}`;
   this.router.navigate([updateUrl]);
  }
   
 public redirectToDeletePage (id : any) {
-  let deleteUrl: string = `/delete/${id}`;
+  let deleteUrl: string = `quiz/delete/${id}`;
   this.router.navigate([deleteUrl]);
   }
   
@@ -56,11 +51,10 @@ public doFilter = (value: string) => {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
-
-  public redirectToCreateQuiz() {
-    
-    this.router.navigate(['/create-quiz']);
   
-  }
+  public redirectToCoursePage (idc : any) {
+
+    this.router.navigate([`/chapters-list/${idc}`]);
+    }
 
 }

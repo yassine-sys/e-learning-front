@@ -92,8 +92,6 @@ export class ChaptersListComponent implements OnInit {
       this.router.navigate(['/courses-list']);
       //alert('are you sure you want to delete this course');
     })
-    
-
 
   }
 

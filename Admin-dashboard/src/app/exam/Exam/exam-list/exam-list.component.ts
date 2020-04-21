@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ExamListComponent implements OnInit {
 
  
-  public displayedColumns = ['Title', 'update', 'delete'];
+  public displayedColumns = ['Title', 'course', 'update', 'delete'];
   public dataSource = new MatTableDataSource<Exam>();
   public errorMessage: string = '';
 
@@ -22,7 +22,7 @@ export class ExamListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   data: any;
-  id : string = this.activeRoute.snapshot.paramMap.get('ExamID');
+  id : string = this.activeRoute.snapshot.paramMap.get('CourseID');
 
   constructor(private repository: RepositoryService,
     private activeRoute: ActivatedRoute,
@@ -40,28 +40,27 @@ export class ExamListComponent implements OnInit {
 
   }
 
-public redirectToUpdatePage (id : any) {
+public redirectToUpdatePage (id : any, idc: any) {
 
-let updateUrl: string = `update/${id}`; 
+let updateUrl: string = `exam/update/${id}`; 
 this.router.navigate([updateUrl]);
 }
 
 public redirectToDeletePage (id : any) {
-let deleteUrl: string = `delete/${id}`;
+let deleteUrl: string = `exam/delete/${id}`;
 this.router.navigate([deleteUrl]);
 }
-
-public redirectToCreateQuestion() {
-
-let cearteQuestionUrl: string = `create-question/${this.id}`;
-this.router.navigate([cearteQuestionUrl]);
-
-
-}
-
 
 public doFilter = (value: string) => {
   this.dataSource.filter = value.trim().toLocaleLowerCase();
 }
+
+public redirectToCoursePage (idc : any) {
+
+  this.router.navigate([`/chapters-list/${idc}`]);
+}
+
+
+
 
 }

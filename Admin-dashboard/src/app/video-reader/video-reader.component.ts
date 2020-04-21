@@ -1,5 +1,4 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 declare const google: any;
@@ -14,7 +13,6 @@ interface Marker {
   selector: 'app-video-reader',
   templateUrl: './video-reader.component.html',
   styleUrls: ['./video-reader.component.css'],
-  providers: [NgxExtendedPdfViewerModule]
 
 })
 export class VideoReaderComponent{

@@ -6,6 +6,7 @@
         <form [formGroup]="quizForm" autocomplete="off" novalidate (ngSubmit)="createQuiz(quizForm.value)" fxLayout="column wrap"
       fxLayoutAlign="center center" fxLayoutGap="10px">
         <mat-card-content>
+          <input type="hidden" class="form-control" formControlName="CourseID" [ngModel]="id">
 
           <mat-form-field>
             <input matInput type="text" placeholder="Quiz's name" formControlName="Title" id="Title">
@@ -16,8 +17,8 @@
                     
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" [disabled]="!quizForm.valid" >Create</button>
-          <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+          <button mat-raised-button class="btn btn-success" [disabled]="!quizForm.valid" >Create</button>
+          <button type="button" mat-raised-button class="btn btn-info" (click)="onCancel()">Cancel</button>
         </mat-card-actions>
 
       </form>

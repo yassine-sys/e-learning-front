@@ -21,7 +21,7 @@ export class CreateQuizComponent implements OnInit {
 
   public quizForm: FormGroup;
   private dialogConfig;
-
+  id : string = this.activeRoute.snapshot.paramMap.get('CourseID');
 
   constructor(private repository: RepositoryService,
     private location: Location,
@@ -33,7 +33,8 @@ export class CreateQuizComponent implements OnInit {
   ngOnInit() {
 
     this.quizForm = new FormGroup({
-      Title: new FormControl('', [Validators.required, Validators.maxLength(60)]),  
+      CourseID: new FormControl('', [Validators.required]),
+      Title: new FormControl('', [Validators.required, Validators.maxLength(60)])
     });
     this.dialogConfig = {
       height: '200px',
@@ -62,6 +63,7 @@ export class CreateQuizComponent implements OnInit {
   private executeQuizCreation = (quizFormValue) => {
     let quiz: Quiz = {
       QuizID: quizFormValue.QuizID,
+      CourseID: quizFormValue.CourseID,
       Title: quizFormValue.Title      
     } 
     let PostQuizUrl : string = `api/Quizs`
@@ -69,17 +71,16 @@ export class CreateQuizComponent implements OnInit {
     .subscribe(res => {
     
     let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
-   // this.router.navigate([`/quiz/quiz-question/${res.QuizID}`]);
-    console.log(quiz.Title);
+   
+      this.router.navigate(['/quiz-dashboard']);
+   
     //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
     dialogRef.afterClosed()
       .subscribe(result => {
         //console.log(quiz.QuizID);   
       });
 
-    }
-    
-    )
+    })
   }
   
 }

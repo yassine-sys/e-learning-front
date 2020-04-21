@@ -17,6 +17,22 @@ import {SectionsListComponent} from 'app/section/sections-list/sections-list.com
 import {SectionFormComponent} from 'app/section/section-form/section-form.component';
 import { VideoReaderComponent } from 'app/video-reader/video-reader.component';
 import { FileUploadComponent } from 'app/file-upload/file-upload.component';
+import { QuizListComponent } from 'app/quiz/Quiz/quiz-dashboard/quiz-list.component';
+import { CreateQuizComponent } from 'app/quiz/Quiz/create-quiz/create-quiz.component';
+import { QuizDeleteComponent } from 'app/quiz/Quiz/quiz-delete/quiz-delete.component';
+import { QuizUpdateComponent } from 'app/quiz/Quiz/quiz-update/quiz-update.component';
+import { ExamListComponent } from 'app/exam/Exam/exam-list/exam-list.component';
+import { CreateExamComponent } from 'app/exam/Exam/create-exam/create-exam.component';
+import { UpdateExamComponent } from 'app/exam/Exam/update-exam/update-exam.component';
+import { DeleteExamComponent } from 'app/exam/Exam/delete-exam/delete-exam.component';
+import { CreateQuestionComponent } from 'app/quiz/Question/create-question/create-question.component';
+import { QuestionListComponent } from 'app/quiz/Question/question-list/question-list.component';
+import { QuestionUpdateComponent } from 'app/quiz/Question/question-update/question-update.component';
+import { QuestionDeleteComponent } from 'app/quiz/Question/question-delete/question-delete.component';
+import { CreateOptionComponent } from 'app/quiz/Option/create-option/create-option.component';
+import { OptionDeleteComponent } from 'app/quiz/Option/option-delete/option-delete.component';
+import { OptionUpdateComponent } from 'app/quiz/Option/option-update/option-update.component';
+import { OptionListComponent } from 'app/quiz/Option/option-list/option-list.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -79,6 +95,66 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'section-form/:id',   component:SectionFormComponent},
     { path: 'file-upload',   component:FileUploadComponent},
     { path: 'video-reader',   component:VideoReaderComponent},
+    {
+        path: 'quiz-dashboard',
+        component: QuizListComponent
+      },{
+          path: 'create-quiz/:CourseID',
+          component: CreateQuizComponent
+      },{ 
+        path: 'delete/:QuizID', 
+        component: QuizDeleteComponent
+      },{ 
+        path: 'update/:QuizID', 
+        component: QuizUpdateComponent
+      },{ 
+        path: 'exam-dashboard', 
+        component: ExamListComponent
+      },{
+        path: 'create-exam/:CourseID',
+        component: CreateExamComponent
+      },{ 
+        path: 'update/:ResID/:ExamID', 
+        component: UpdateExamComponent
+      },{
+        path: 'delete/:ExamID',
+        component: DeleteExamComponent
+      },{
+        path: 'create-question/:QuizID',
+        component: CreateQuestionComponent
+      },{
+        path: 'create-question/:ExamID',
+        component: CreateQuestionComponent
+      },{ 
+        path: 'update/:QuizID/question-list', 
+        component: QuestionListComponent
+      },{ 
+        path: 'update/:ExamID/question-list', 
+        component: QuestionListComponent
+      },{ 
+        path: 'update/:ExamID/update/:QuesID', 
+        component: QuestionUpdateComponent
+      },{ 
+        path: 'update/:QuizID/update/:QuesID', 
+        component: QuestionUpdateComponent
+      },{ 
+        path: 'delete/:QuizID/delete/:QuesID', 
+        component: QuestionDeleteComponent
+      },{ 
+        path: 'delete/:ExamID/delete/:QuesID', 
+        component: QuestionDeleteComponent
+      },{
+        path: 'create-option/:QuesID', 
+        component: CreateOptionComponent
+      },{
+        path: 'option/delete/:QuesID/delete/:OpID', 
+        component: OptionDeleteComponent
+      },{  
+        path: 'option/update/:QuesID/update/:OpID', 
+        component: OptionUpdateComponent
+      },{  
+        path: 'update/:QuesID/option-list', 
+        component: OptionListComponent}
 
 
 ];

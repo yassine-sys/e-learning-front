@@ -34,7 +34,6 @@ export class OptionUpdateComponent implements OnInit {
   ngOnInit() {
 
     this.optionForm = new FormGroup({
-      QuesID: new FormControl('', [Validators.required]),
       OpID: new FormControl('', [Validators.required]),
       OptionText: new FormControl('', [Validators.required, Validators.maxLength(60)]),
       values: new FormControl(this.values, [Validators.required])
@@ -84,7 +83,6 @@ public updateOption(optionFormValue) {
  
 private executeOptionUpdate(optionFormValue) {
 
-  this.option.QuesID = optionFormValue.QuesID;
   this.option.OptionText = optionFormValue.OptionText;
   this.option.values = optionFormValue.values;
 
@@ -95,7 +93,7 @@ private executeOptionUpdate(optionFormValue) {
       //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
 dialogRef.afterClosed()
 .subscribe(result => {
-  this.router.navigate([`/update/${this.QuesID}/option-list`]);
+  this.router.navigate([`/quiz/${this.QuesID}/option-list`]);
    
 });
 }) 

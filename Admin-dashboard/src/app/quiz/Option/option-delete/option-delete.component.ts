@@ -52,7 +52,7 @@ export class OptionDeleteComponent implements OnInit {
 
 
   public redirectToOptionsList() {
-    this.router.navigate([`/update/${this.QuesID}/option-list`]);
+    this.router.navigate([`/quiz/${this.QuesID}/option-list`]);
   }
 
   public deleteOption( ) {
@@ -63,7 +63,7 @@ export class OptionDeleteComponent implements OnInit {
           //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
     dialogRef.afterClosed()
     .subscribe(result => {
-      this.router.navigate([`/update/${this.QuesID}/option-list`]);
+      this.router.navigate([`/quiz/${this.QuesID}/option-list`]);
 
     });
       })

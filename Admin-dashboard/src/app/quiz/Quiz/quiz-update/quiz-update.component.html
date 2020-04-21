@@ -1,10 +1,10 @@
-
-  <div class="main-content">
+<div class="main-content">
 
 <div class="container-fluid">
   <form [formGroup]="quizForm" autocomplete="off" novalidate (ngSubmit)="updateQuiz(quizForm.value)">
     <div class="form-horizontal well">
 
+      <input type="hidden" class="form-control" formControlName="CourseID" [ngModel]="CId">
       <div class="form-group">
         <label for="Title" class="control-label col-md-2"> New Title : </label>
         <div class="col-md-5">
@@ -19,10 +19,10 @@
       <br><br>
  <div class="form-group">
     <div class="col-md-offset-5 col-md-1">
-        <button type="submit" class="btn btn-info" [disabled]="!quizForm.valid">Update</button>
+        <button type="submit" class="btn btn-success" [disabled]="!quizForm.valid">Update</button>
     </div>
     <div class="col-md-1">
-       <button type="button" class="btn btn-danger" (click)="redirectToQuizzesList()">Cancel</button>
+       <button type="button" class="btn btn-info" (click)="redirectToQuizzesList()">Cancel</button>
     </div>
  </div>
           
