@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import {YouTubePlayerModule} from '@angular/youtube-player';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -45,9 +45,14 @@ import { SectionFormComponent } from './section/section-form/section-form.compon
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
 import { UploadFileService } from './shared/upload-file.service';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import{VideoReaderComponent} from './video-reader/video-reader.component';
+import { ParagraphsListComponent } from './paragraph/paragraphs-list/paragraphs-list.component';
+import { ParagraphFormComponent } from './paragraph/paragraph-form/paragraph-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { VideoReaderComponent } from './video-reader/video-reader.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
+import {FileUploadComponent} from './file-upload/file-upload.component';
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer'; 
+
 
 
 
@@ -85,8 +90,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
-    AppRoutingModule
-    
+    AppRoutingModule,
+    YouTubePlayerModule,
+  
+    PdfViewerModule,
+    PdfJsViewerModule
   ],
   declarations: [
     AppComponent,
@@ -101,6 +109,8 @@ const appRoutes: Routes = [
     SectionFormComponent,
     EditCourseComponent,
     VideoReaderComponent,
+    ParagraphsListComponent,
+    ParagraphFormComponent,
     FileUploadComponent,
 
   ],

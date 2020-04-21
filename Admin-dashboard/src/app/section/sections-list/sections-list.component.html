@@ -15,6 +15,7 @@
         </div>
         <div class="row ">
             <div class="col-md-4 " *ngFor="let item of SectionList" >
+                <a routerLink='/paragraphs-list/{{item.SectionID}}'>
                 
                 <div class="card card-chart ">
                     <div class="card-header text-center ">
@@ -32,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-            
+                </a>
             </div>
             
         </div>

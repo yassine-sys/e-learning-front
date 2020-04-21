@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
@@ -31,6 +32,7 @@ import { CoursesListComponent } from 'app/course/courses-list/courses-list.compo
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    NgxExtendedPdfViewerModule
   ],
   declarations: [
     DashboardComponent,

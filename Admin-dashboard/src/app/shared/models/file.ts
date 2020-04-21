@@ -1,7 +1,6 @@
-export class File {
+export class FileATT {
     FileID:number;
     FileName:string;
     FileDuration:string;
-    FileTitle:string;
     FileDescription:string;
 }

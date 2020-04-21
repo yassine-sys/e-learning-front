@@ -22,4 +22,7 @@ export class UploadFileService {
   getFileByID(id) {
     return this.http.get(this.ApiURL + '/Files/' +id);
   }
+  getFileList(){
+    return this.http.get(this.ApiURL + '/Files');
+  }
 }

@@ -13,10 +13,10 @@
                                     controls preload="none" poster='assets/img/logo.jpg'
                                     data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'
                                     (timeupdate)="setCurrentTime($event)">
-
-                                    <source [src]="fileSrc" type='video/webm' />
+ 
+                                    <source [src]="pdfContent" type='video/webm' />
                                 </video>
-
+ 
                             </div>
                         </div>
                     </div>
@@ -30,8 +30,7 @@
                     <div class="col-md-12">
                         <div class="card-body">
                             <ngx-extended-pdf-viewer [src]="pdfSrc" useBrowserLocale="true" height="80vh"></ngx-extended-pdf-viewer>
-
-
+ 
                         </div>
                     </div>
                 </div>
