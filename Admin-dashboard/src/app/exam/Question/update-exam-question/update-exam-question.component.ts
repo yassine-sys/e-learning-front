@@ -66,7 +66,7 @@ public hasError(controlName: string, errorName: string) {
 
  
 public redirectToQuestionsList(){
-  this.router.navigate([`/exam/update/${this.ExamID}/question-list`]);
+  this.router.navigate([`/exam/${this.id}/option-list`]);
 }
 
 public updateQuestion(questionFormValue) {

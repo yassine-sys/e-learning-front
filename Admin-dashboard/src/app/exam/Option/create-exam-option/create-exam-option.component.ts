@@ -56,7 +56,7 @@ export class CreateExamOptionComponent implements OnInit {
   }
  
   public onCancel = () => {
-    this.router.navigate(['../exam/Option/option-list']);
+    this.router.navigate([`/exam/${this.id}/option-list`]);
 
   }
  
@@ -79,7 +79,7 @@ export class CreateExamOptionComponent implements OnInit {
         let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
          dialogRef.afterClosed()
           .subscribe(result => {
-            this.router.navigate([`exam/${this.id}/option-list`]);           
+            this.router.navigate([`/exam/${this.id}/option-list`]);           
       },
       (error => {
         this.location.back();
