@@ -46,13 +46,9 @@
     "jquery": "3.4.1",
     "moment": "2.24.0",
     "ng-pick-datetime": "^7.0.0",
-<<<<<<< HEAD
-    "npm-install-all": "^1.1.21",
-=======
     "ng2-pdf-viewer": "^6.2.0",
     "ng2-pdfjs-viewer": "^5.0.7",
     "ngx-extended-pdf-viewer": "^3.2.1",
->>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.15.0",
     "rxjs": "6.5.2",

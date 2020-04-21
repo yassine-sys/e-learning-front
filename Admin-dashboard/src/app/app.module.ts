@@ -11,14 +11,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
-<<<<<<< HEAD
 import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
-=======
 import {YouTubePlayerModule} from '@angular/youtube-player';
 
 
->>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -76,10 +73,6 @@ import { SectionsListComponent } from './section/sections-list/sections-list.com
 import { SectionFormComponent } from './section/section-form/section-form.component';
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
 import { UploadFileService } from './shared/upload-file.service';
-<<<<<<< HEAD
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { VideoReaderComponent } from './video-reader/video-reader.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CourseService } from './shared/course.service';
 import { SectionService } from './shared/section.service';
 import { DepartmentService } from './shared/department.service';
@@ -95,7 +88,6 @@ import { ExamOptionListComponent } from './exam/Option/exam-option-list/exam-opt
 import { UsersDashboardComponent } from './users-dashboard/users-dashboard.component';
 import { UsersQuizzesComponent } from './users-quizzes/users-quizzes.component';
 import { UsersExamsComponent } from './users-exams/users-exams.component';
-=======
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import{VideoReaderComponent} from './video-reader/video-reader.component';
@@ -104,9 +96,6 @@ import { ParagraphFormComponent } from './paragraph/paragraph-form/paragraph-for
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FileUploadComponent} from './file-upload/file-upload.component';
 import { PdfJsViewerModule } from 'ng2-pdfjs-viewer'; 
-
->>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
-
 
 
 const appRoutes: Routes = [
@@ -190,22 +179,18 @@ const appRoutes: Routes = [
     OwlDateTimeModule,
     OwlNativeDateTimeModule,  
     AppRoutingModule,
-<<<<<<< HEAD
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
     MatDialogModule,
     RouterModule.forRoot(appRoutes),
-    AppRoutingModule
- ],
-=======
+    AppRoutingModule,
     YouTubePlayerModule,
-  
     PdfViewerModule,
-    PdfJsViewerModule
+    PdfJsViewerModule,
+    NgxExtendedPdfViewerModule
   ],
->>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
   declarations: [
     AppComponent,
     AdminLayoutComponent,

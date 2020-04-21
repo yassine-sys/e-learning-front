@@ -18,9 +18,6 @@
             "polyfills": "src/polyfills.ts",
             "assets": [
               "src/assets",
-<<<<<<< HEAD
-              "src/favicon.ico"
-=======
               "src/favicon.ico",
               {
                 "glob": "**/*",
@@ -28,7 +25,6 @@
                 "output": "/assets/"
               },
               { "glob": "**/*", "input": "node_modules/ng2-pdfjs-viewer/pdfjs", "output": "/assets/pdfjs" }
->>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
             ],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
