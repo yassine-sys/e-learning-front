@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { Component, ViewChild, ElementRef } from '@angular/core';
-
-
-declare const google: any;
-=======
->>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
 
 import { Component, ViewChild, ElementRef } from'@angular/core';
 import { NgxExtendedPdfViewerModule } from'ngx-extended-pdf-viewer';
@@ -20,18 +13,11 @@ label?: string;
 draggable?: boolean;
 }
 @Component({
-<<<<<<< HEAD
-  selector: 'app-video-reader',
-  templateUrl: './video-reader.component.html',
-  styleUrls: ['./video-reader.component.css'],
-
-=======
 selector:'app-video-reader',
 templateUrl:'./video-reader.component.html',
 styleUrls: ['./video-reader.component.css'],
 providers: [NgxExtendedPdfViewerModule]
  
->>>>>>> 357537d85ada69ac4905a7638c1fc7ecd646b320
 })
 export class VideoReaderComponent{
  
