@@ -10,10 +10,35 @@ declare var $: any;
 export class IconsComponent implements OnInit {
 
  
-  imageUrl: string="/assets/img/1.png";
+  fileUrl: string="/assets/img/1.png";
   fileToUpload: File= null;
-  constructor(private imageService: UploadFileService) { }
 
+  constructor(private fileService: UploadFileService) { }
+
+  ngOnInit(): void {
+  }
+
+  handleFileInput(file: FileList)
+  {
+    this.fileToUpload=file.item(0);
+    //file preview 
+    var reader = new FileReader();
+    reader.onload=(event: any)=>
+    {
+      this.fileUrl= event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
+  
+  OnSubmit(f:any, title:any, description:any){
+    this.fileService.postFile(this.fileToUpload, title.value,  description.value).subscribe(
+      data=>{
+        f.value=null;
+        this.fileUrl= "/assets/img/1.png";
+      }
+    );
+
+  }
 
   showNotification(from, align){
     const type = ['','info','success','warning','danger'];
@@ -43,27 +68,5 @@ export class IconsComponent implements OnInit {
         '</div>'
     });
 }
-
-  ngOnInit() {
-  }
-  handleFileInput(file: FileList)
-  {
-    this.fileToUpload=file.item(0);
-    var reader = new FileReader();
-    reader.onload=(event: any)=>
-    {
-      this.imageUrl= event.target.result;
-    }
-    reader.readAsDataURL(this.fileToUpload);
-  }
-  OnSubmit(Image:any){
-    this.imageService.postFile(this.fileToUpload).subscribe(
-      data=>{
-        Image.value=null;
-        this.imageUrl= "/assets/img/1.png";
-      }
-    );
-
-  }
 
 }

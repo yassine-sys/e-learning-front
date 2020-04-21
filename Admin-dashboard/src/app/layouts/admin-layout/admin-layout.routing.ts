@@ -18,7 +18,7 @@ import {SectionFormComponent} from 'app/section/section-form/section-form.compon
 import { VideoReaderComponent } from 'app/video-reader/video-reader.component';
 import { ParagraphsListComponent } from '../../paragraph/paragraphs-list/paragraphs-list.component';
 import { ParagraphFormComponent } from '../../paragraph/paragraph-form/paragraph-form.component';
-
+import {FileUploadComponent} from '../../file-upload/file-upload.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -67,6 +67,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
+    { path: 'file-upload',     component: FileUploadComponent },
     { path: 'video-reader',     component: VideoReaderComponent },
     { path: 'courses-list',   component: CoursesListComponent },
     {path: 'course-form',     component:CourseFormComponent},

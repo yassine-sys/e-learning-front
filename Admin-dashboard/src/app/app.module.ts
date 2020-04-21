@@ -1,6 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -12,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import {YouTubePlayerModule} from '@angular/youtube-player';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -45,12 +44,14 @@ import { SectionsListComponent } from './section/sections-list/sections-list.com
 import { SectionFormComponent } from './section/section-form/section-form.component';
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
 import { UploadFileService } from './shared/upload-file.service';
-import {YouTubePlayerModule} from '@angular/youtube-player';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import{VideoReaderComponent} from './video-reader/video-reader.component';
 import { ParagraphsListComponent } from './paragraph/paragraphs-list/paragraphs-list.component';
 import { ParagraphFormComponent } from './paragraph/paragraph-form/paragraph-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FileUploadComponent} from './file-upload/file-upload.component';
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer'; 
 
 
 
@@ -74,6 +75,7 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   imports: [
+    NgxExtendedPdfViewerModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
@@ -90,8 +92,9 @@ const appRoutes: Routes = [
     OwlNativeDateTimeModule,  
     AppRoutingModule,
     YouTubePlayerModule,
-    NgxExtendedPdfViewerModule,
-    PdfViewerModule
+  
+    PdfViewerModule,
+    PdfJsViewerModule
   ],
   declarations: [
     AppComponent,
@@ -108,6 +111,7 @@ const appRoutes: Routes = [
     VideoReaderComponent,
     ParagraphsListComponent,
     ParagraphFormComponent,
+    FileUploadComponent,
 
   ],
   providers: [

@@ -1,7 +1,37 @@
 
+<div class="main-content">
+    <div class="container-fluid">
+
+
 <div>
     <a routerLink='/paragraph-form/{{sectionID}}' class="btn btn-primary"><i class="fa fa-plus"></i>Add Pragraph</a>
 </div>
-<div class="row"> 
-    <iframe width="1200" height="700" src="https://www.youtube.com/embed/lVbyqpXXOn0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div class="card">
+    <div class="card-header card-header-tabs card-header-info">
+        <h3 class="card-title">PDF Reader</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+               <!----  <object  [data]="pdfContent" type="application/pdf" style="width:90%; height:1000px" ></object>
+         <object   style="width:100%; height:1000px" ></object>
+               <ngx-extended-pdf-viewer [src]="pdfContent"   useBrowserLocale="true" height="80vh"></ngx-extended-pdf-viewer>
+            <pdf-viewer [data]="pdfContent" [render-text]="true" style="display: block;" ></pdf-viewer>
+            <ng2-pdfjs-viewer pdfSrc="{{pdfContent}}"></ng2-pdfjs-viewer>-->
+            <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
+                                    controls preload="none" poster='assets/img/logo.jpg'
+                                    data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'
+                                    (timeupdate)="setCurrentTime($event)">
+ 
+                                    <source [src]="pdfContent" type='video/mp4' />
+                                </video>
+            
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
 </div>
