@@ -95,7 +95,7 @@ import { ParagraphsListComponent } from './paragraph/paragraphs-list/paragraphs-
 import { ParagraphFormComponent } from './paragraph/paragraph-form/paragraph-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FileUploadComponent} from './file-upload/file-upload.component';
-import { PdfJsViewerModule } from 'ng2-pdfjs-viewer'; 
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 
 
 const appRoutes: Routes = [
@@ -236,6 +236,7 @@ const appRoutes: Routes = [
     UsersDashboardComponent,
     UsersQuizzesComponent,
     UsersExamsComponent,
+    
 
   ],
   providers: [
