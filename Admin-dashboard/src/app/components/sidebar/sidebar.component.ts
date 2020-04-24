@@ -20,7 +20,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/exam-dashboard', title: 'Manage Exams',  icon:'content_paste', class: '' },
     { path: '/users-dashboard', title: 'Users Dashboard',  icon: 'dashboard', class: '' },
    // { path: '/video-reader', title: 'Video',  icon:'library_books', class: '' },
-    { path: '/file-upload', title: 'file-upload',  icon:'library_books', class: '' }
+    { path: '/file-upload', title: 'file-upload',  icon:'library_books', class: '' },
+    { path: '/business-unit', title: 'business unit',  icon: 'dashboard', class: '' },
+
 
 
 ];

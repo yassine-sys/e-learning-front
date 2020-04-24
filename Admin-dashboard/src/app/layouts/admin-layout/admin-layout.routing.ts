@@ -19,6 +19,9 @@ import { VideoReaderComponent } from 'app/video-reader/video-reader.component';
 import { ParagraphsListComponent } from '../../paragraph/paragraphs-list/paragraphs-list.component';
 import { ParagraphFormComponent } from '../../paragraph/paragraph-form/paragraph-form.component';
 import {FileUploadComponent} from '../../file-upload/file-upload.component';
+import { BusinessUnitComponent } from 'app/business-unit/business-unit.component';
+import { DepartmentComponent } from 'app/department/department.component';
+import { UserComponent } from 'app/user/user.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -83,4 +86,8 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'section-form/:id',   component:SectionFormComponent},
     {path: 'paragraphs-list/:id',   component:ParagraphsListComponent},
     {path: 'paragraph-form/:id',   component:ParagraphFormComponent},
+    { path: '/business-unit', component:BusinessUnitComponent },
+    { path: 'business-unit/:id',        component: DepartmentComponent },
+    { path: 'department/:id',        component: UserComponent },
+
 ];

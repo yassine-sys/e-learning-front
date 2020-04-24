@@ -1,0 +1,125 @@
+
+  <div class="container py-5">
+    
+    <div class="split right" class="container custom-container">
+   
+     
+      <div class="col-md-12">
+     
+      
+      
+        <form #userRegistrationForm="ngForm" (ngSubmit)="onSubmit(userRegistrationForm)">
+
+          <div class="form-group">
+        
+            <input type="hidden" [(ngModel)]="user.Id" name="Id" class="form-control" placeholder="Id">
+     
+          </div>
+
+          <div class="form-group">
+        
+            <input type="hidden" [(ngModel)]="user.DepartmentID" name="DepartmentID" class="form-control" placeholder="DepartmentID">
+     
+          </div>
+
+      
+          <div class="form-group">
+        
+            <input type="text" [(ngModel)]="user.Username" name="Username" class="form-control" placeholder="Username" required>
+     
+          </div>
+  
+      
+          <div class="form-group">
+       
+            <input type="text" [(ngModel)]="user.Email" name="Email" class="form-control" placeholder="Email" [pattern]="emailPattern" required>
+      
+          </div>
+
+          <div class="form-group">
+        
+            <input type="text" [(ngModel)]="user.FirstName" name="FirstName" class="form-control" placeholder="FirstName" required>
+     
+          </div>
+
+          <div class="form-group">
+        
+            <input type="text" [(ngModel)]="user.LastName" name="LastName" class="form-control" placeholder="LastName" required>
+     
+          </div>
+
+          <div class="form-group">
+        
+            <input type="password" [(ngModel)]="user.Password" name="Password" class="form-control" placeholder="Password" [pattern]="passwordpattern" required>
+     
+          </div>
+
+          <div class="form-group">
+        
+            <input type="password" [(ngModel)]="user.ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" [pattern]="user.Password" required>
+     
+          </div>
+
+     
+          <div class="form-group">
+        
+            <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="!userRegistrationForm.valid" >Create User</button>
+
+      
+          </div>
+
+          <div class="form-group">
+        
+
+      
+          </div>
+
+
+    
+        </form>
+
+
+     
+     
+      </div>
+
+
+
+
+  
+    </div>
+
+  </div>
+  
+
+  <div class="container py-5">  
+    <h3 class="text-center text-uppercase">List of users</h3>  
+    <table class="table table-bordered table-striped">  
+        <thead>  
+            <tr class="text-center text-uppercase">  
+              <th>id</th>
+              <th>Email</th>
+              <th>Username</th>
+               <th>First Name</th>  
+                <th>Last Name</th>  
+                
+              </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let emp of users"> 
+            <td>{{emp.Id}}</td>
+            <td>{{emp.Email}}</td>
+            <td>{{emp.UserName}}</td> 
+            <td>{{emp.FirstName}}</td>  
+            <td>{{emp.LastName}}</td>  
+           <td><button class="btn btn-outline-danger" (click)="onDelete(emp.Id)">Delete</button></td>
+          </tr>  
+        </tbody>  
+      </table>  
+    </div>  
+  
+
+
+
+          
+

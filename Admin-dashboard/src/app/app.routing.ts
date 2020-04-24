@@ -33,6 +33,8 @@ import { ExamOptionListComponent } from './exam/Option/exam-option-list/exam-opt
 import { UsersDashboardComponent } from './users-dashboard/users-dashboard.component';
 import { UsersQuizzesComponent } from './users-quizzes/users-quizzes.component';
 import { UsersExamsComponent } from './users-exams/users-exams.component';
+import { BusinessUnitComponent } from './business-unit/business-unit.component';
+import { DepartmentComponent } from './department/department.component';
 
 const routes: Routes =[
   {
@@ -99,6 +101,10 @@ const routes: Routes =[
     path: 'user-quizzes/:Id', component: UsersQuizzesComponent
 },{
     path: 'user-exams/:Id', component: UsersExamsComponent
+},{
+    path: 'business-unit', component: BusinessUnitComponent
+},{
+    path: 'department', component: DepartmentComponent
 }
 ]}]
 

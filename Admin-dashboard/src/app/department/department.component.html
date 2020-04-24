@@ -1,0 +1,73 @@
+<div class="container py-5">
+    
+    <div class="split right" class="container custom-container">
+   
+     
+      <div class="col-md-12">
+     
+      
+      
+        <form #departmentForm="ngForm" (ngSubmit)="onSubmit(departmentForm)">
+
+          <div class="form-group">
+        
+            <input type="hidden" [(ngModel)]="department.DepartmentID" name="DepartmentID" class="form-control" placeholder="DepartmentID">
+     
+          </div>
+
+          <div class="form-group">
+        
+            <input type="hidden" [(ngModel)]="department.BusinessUnitId" name="BusinessUnitId" class="form-control" placeholder="BusinessUnitId">
+     
+          </div>
+
+      
+          <div class="form-group">
+        
+            <input type="text" [(ngModel)]="department.Name" name="Name" class="form-control" placeholder="Name">
+     
+          </div>
+  
+      
+          <div class="form-group">
+       
+            <input type="text" [(ngModel)]="department.Description" name="Description" class="form-control" placeholder="Description">
+      
+          </div>
+     
+          <div class="form-group">
+        
+            <button type="submit" class="btn btn-success btn-lg btn-block" >Create Department</button>
+
+      
+          </div>
+        </form>
+        <button class="btn btn-success btn-lg btn-block"(click)="onEdit(DepartmentID,department)">Edit</button>
+
+      </div>
+    </div>
+</div>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let emp of departments"> 
+      <td>{{emp.DepartmentID}}</td>
+      <td>{{emp.Name}}</td>
+      <td>{{emp.Description}}</td> 
+      <td><button class="btn btn-outline-primary" (click)="onEdit(emp.DepartmentID,emp)">Edit</button></td>
+      <td><button class="btn btn-outline-danger" (click)="onDelete(emp.DepartmentID)">Delete</button></td>
+      <td><button class="btn btn-link" (click)="onSelect(emp)">My users</button></td>
+
+
+
+  </tbody>
+</table>
+

@@ -96,6 +96,11 @@ import { ParagraphFormComponent } from './paragraph/paragraph-form/paragraph-for
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FileUploadComponent} from './file-upload/file-upload.component';
 import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
+import { BusinessUnitComponent } from './business-unit/business-unit.component';
+import { BusinessUnitService } from './business-unit/business-unit.service';
+import { DepartmentComponent } from './department/department.component';
+import { UserComponent } from './user/user.component';
+import { UserService } from './user/user.service';
 
 
 const appRoutes: Routes = [
@@ -153,6 +158,8 @@ const appRoutes: Routes = [
     path: 'user-quizzes/:Id', component: UsersQuizzesComponent
 },{
     path: 'user-exams/:Id', component: UsersExamsComponent
+},{
+    path: 'business-unit', component: BusinessUnitComponent
 }
 ];
 
@@ -236,13 +243,17 @@ const appRoutes: Routes = [
     UsersDashboardComponent,
     UsersQuizzesComponent,
     UsersExamsComponent,
+    BusinessUnitComponent,
+    DepartmentComponent,
+    UserComponent,
     
 
   ],
   providers: [
     
     UploadFileService, RepositoryService,CourseService, 
-    SectionService, DepartmentService, ChapterService,EnvironmentUrlService
+    SectionService, DepartmentService, ChapterService,EnvironmentUrlService,
+    BusinessUnitService,DepartmentService,UserService
   ],
   bootstrap: [AppComponent]
 })

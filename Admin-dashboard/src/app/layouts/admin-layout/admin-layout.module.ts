@@ -19,6 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { CoursesListComponent } from 'app/course/courses-list/courses-list.component';
+import { BusinessUnitComponent } from 'app/business-unit/business-unit.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,7 @@ import { CoursesListComponent } from 'app/course/courses-list/courses-list.compo
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent
+    UpgradeComponent,
   ]
 })
 
