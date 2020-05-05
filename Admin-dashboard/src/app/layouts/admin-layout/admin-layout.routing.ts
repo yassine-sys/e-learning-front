@@ -89,5 +89,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: '/business-unit', component:BusinessUnitComponent },
     { path: 'business-unit/:id',        component: DepartmentComponent },
     { path: 'department/:id',        component: UserComponent },
+   
+
+
 
 ];

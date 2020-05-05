@@ -26,4 +26,7 @@ registerUser(user:User){
 onDelete(Id:string){
   return this.http.delete('https://localhost:44306/api/Account/user/'+Id);
 }
+UserByDepartment(DepartmentID){
+  return this.http.get('https://localhost:44306/api/UserByDepartment/'+DepartmentID)
+}
 }

@@ -35,6 +35,7 @@ import { UsersQuizzesComponent } from './users-quizzes/users-quizzes.component';
 import { UsersExamsComponent } from './users-exams/users-exams.component';
 import { BusinessUnitComponent } from './business-unit/business-unit.component';
 import { DepartmentComponent } from './department/department.component';
+import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes =[
   {
@@ -105,6 +106,13 @@ const routes: Routes =[
     path: 'business-unit', component: BusinessUnitComponent
 },{
     path: 'department', component: DepartmentComponent
+}
+,{
+    path: 'user-list', component: UserListComponent
+},{
+    path: 'department/:id', component: DepartmentComponent
+},{
+    path: 'business-unit/:id', component: BusinessUnitComponent
 }
 ]}]
 

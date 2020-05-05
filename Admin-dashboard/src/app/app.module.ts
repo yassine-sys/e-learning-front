@@ -101,6 +101,8 @@ import { BusinessUnitService } from './business-unit/business-unit.service';
 import { DepartmentComponent } from './department/department.component';
 import { UserComponent } from './user/user.component';
 import { UserService } from './user/user.service';
+import { UserListComponent } from './user/user-list/user-list.component';
+
 
 
 const appRoutes: Routes = [
@@ -246,6 +248,8 @@ const appRoutes: Routes = [
     BusinessUnitComponent,
     DepartmentComponent,
     UserComponent,
+    UserListComponent,
+   
     
 
   ],
@@ -255,7 +259,7 @@ const appRoutes: Routes = [
     SectionService, DepartmentService, ChapterService,EnvironmentUrlService,
     BusinessUnitService,DepartmentService,UserService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
 

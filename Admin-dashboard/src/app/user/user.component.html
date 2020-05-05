@@ -1,124 +1,64 @@
 
-  <div class="container py-5">
-    
-    <div class="split right" class="container custom-container">
-   
-     
-      <div class="col-md-12">
-     
+
+    <div class="main-content">
+
+      <div fxLayout fxLayoutAlign="center center">
+        <div fxFlex="60">
+          <div class="mat-elevation-z8">
+            <table class="table table-striped" mat-table [dataSource]="dataSource" matSort>
+      
+              <!-- Position Column -->
+              <ng-container matColumnDef="Id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>  Id </th>
+                <td mat-cell *matCellDef="let emp "> {{emp.Id}}</td>
+              </ng-container>
+      
+              <!-- Name Column -->
+              <ng-container matColumnDef="FirstName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> FirstName </th>
+                <td mat-cell *matCellDef="let emp"> {{emp.FirstName}} </td>
+              </ng-container>
+      
+              <!-- adress Column -->
+              <ng-container matColumnDef="LastName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> LastName </th>
+                <td mat-cell *matCellDef="let emp"> {{emp.LastName}} </td>
+              </ng-container>
+      
+              <!-- adress Column -->
+              <ng-container matColumnDef="Email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                <td mat-cell *matCellDef="let emp"> {{emp.Email}} </td>
+              </ng-container>
+      
+              <!-- adress Column -->
+              <ng-container matColumnDef="UserName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> UserName </th>
+                <td mat-cell *matCellDef="let emp"> {{emp.UserName}} </td>
+              </ng-container>
       
       
-        <form #userRegistrationForm="ngForm" (ngSubmit)="onSubmit(userRegistrationForm)">
-
-          <div class="form-group">
-        
-            <input type="hidden" [(ngModel)]="user.Id" name="Id" class="form-control" placeholder="Id">
-     
-          </div>
-
-          <div class="form-group">
-        
-            <input type="hidden" [(ngModel)]="user.DepartmentID" name="DepartmentID" class="form-control" placeholder="DepartmentID">
-     
-          </div>
-
       
-          <div class="form-group">
-        
-            <input type="text" [(ngModel)]="user.Username" name="Username" class="form-control" placeholder="Username" required>
-     
-          </div>
-  
+             
       
-          <div class="form-group">
-       
-            <input type="text" [(ngModel)]="user.Email" name="Email" class="form-control" placeholder="Email" [pattern]="emailPattern" required>
+              <ng-container matColumnDef="onDelete">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Delete </th>
+              <td mat-cell *matCellDef="let emp"> <button   mat-button  color="warn"  (click)="onDelete(emp.DepartmentID)">Delete</button></td>
       
-          </div>
-
-          <div class="form-group">
-        
-            <input type="text" [(ngModel)]="user.FirstName" name="FirstName" class="form-control" placeholder="FirstName" required>
-     
-          </div>
-
-          <div class="form-group">
-        
-            <input type="text" [(ngModel)]="user.LastName" name="LastName" class="form-control" placeholder="LastName" required>
-     
-          </div>
-
-          <div class="form-group">
-        
-            <input type="password" [(ngModel)]="user.Password" name="Password" class="form-control" placeholder="Password" [pattern]="passwordpattern" required>
-     
-          </div>
-
-          <div class="form-group">
-        
-            <input type="password" [(ngModel)]="user.ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" [pattern]="user.Password" required>
-     
-          </div>
-
-     
-          <div class="form-group">
-        
-            <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="!userRegistrationForm.valid" >Create User</button>
-
+            </ng-container>
+              
       
-          </div>
-
-          <div class="form-group">
-        
-
       
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSize]="6" [pageSizeOptions]="[2, 4, 6, 10, 20]">
+            </mat-paginator>
           </div>
-
-
-    
-        </form>
-
-
-     
-     
+        </div>
       </div>
-
-
-
-
-  
-    </div>
-
-  </div>
-  
-
-  <div class="container py-5">  
-    <h3 class="text-center text-uppercase">List of users</h3>  
-    <table class="table table-bordered table-striped">  
-        <thead>  
-            <tr class="text-center text-uppercase">  
-              <th>id</th>
-              <th>Email</th>
-              <th>Username</th>
-               <th>First Name</th>  
-                <th>Last Name</th>  
-                
-              </tr>  
-        </thead>  
-        <tbody>  
-          <tr *ngFor="let emp of users"> 
-            <td>{{emp.Id}}</td>
-            <td>{{emp.Email}}</td>
-            <td>{{emp.UserName}}</td> 
-            <td>{{emp.FirstName}}</td>  
-            <td>{{emp.LastName}}</td>  
-           <td><button class="btn btn-outline-danger" (click)="onDelete(emp.Id)">Delete</button></td>
-          </tr>  
-        </tbody>  
-      </table>  
-    </div>  
-  
-
+      </div>
+      
 
 
           
