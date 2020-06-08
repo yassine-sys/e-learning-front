@@ -40,6 +40,8 @@ export class UserComponent implements OnInit {
     console.log(this.DepartmentID)
     this.resetForm();
     this.list()
+   
+   
 
   }
 /*userlist(){
@@ -63,6 +65,7 @@ resetForm(form?:NgForm){
     ConfirmPassword:'',
     DepartmentID:this.DepartmentID
   }
+  
 }
 
   onSubmit(form:NgForm){

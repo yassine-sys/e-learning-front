@@ -37,7 +37,7 @@ import { BusinessUnitComponent } from 'app/business-unit/business-unit.component
   ],
   declarations: [
     DashboardComponent,
-    UserProfileComponent,
+   // UserProfileComponent,
     TableListComponent,
     TypographyComponent,
     

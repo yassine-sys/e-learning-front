@@ -58,9 +58,11 @@
             <input matInput type="password" [(ngModel)]="user.ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" [pattern]="user.Password" required>
      
           </div>
+          
 
-     
-          <div class="form-group">
+
+
+           <div class="form-group">
         
             <button mat-raised-button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="!userRegistrationForm.valid" >Create User</button>
 

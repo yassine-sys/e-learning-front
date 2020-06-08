@@ -249,6 +249,7 @@ const appRoutes: Routes = [
     DepartmentComponent,
     UserComponent,
     UserListComponent,
+    UserProfileComponent
    
     
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user.model';
+import user from 'app/shared/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
 registerUser(user:User){
-  const body: User = {
+  const body:User = {
     Id:user.Id,
     Username: user.Username,
     Password: user.Password,
@@ -18,8 +19,12 @@ registerUser(user:User){
     Email: user.Email,
     FirstName: user.FirstName,
     LastName: user.LastName,
-    DepartmentID:user.DepartmentID
+
+    DepartmentID:user.DepartmentID,
+
   }
+ 
+
   return this.http.post(this.rootUrl + '/api/Account/Register', body);
 }
 
@@ -28,5 +33,9 @@ onDelete(Id:string){
 }
 UserByDepartment(DepartmentID){
   return this.http.get('https://localhost:44306/api/UserByDepartment/'+DepartmentID)
+}
+getAllRoles() {
+  var reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
+  return this.http.get(this.rootUrl + '/api/roles/GetAllRoles', { headers: reqHeader });
 }
 }

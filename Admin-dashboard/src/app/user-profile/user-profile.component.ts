@@ -32,6 +32,7 @@ export class UserProfileComponent implements OnInit {
     this.DepartmentID=this.route.snapshot.paramMap.get('id');
     console.log(this.DepartmentID)
     this.resetForm();
+   
   }
 userlist(){
   this.http.get('https://localhost:44306/api/Account/users').subscribe(  
@@ -54,6 +55,7 @@ resetForm(form?:NgForm){
     ConfirmPassword:'',
     DepartmentID:this.DepartmentID
   }
+  
 }
 
   onSubmit(form:NgForm){
