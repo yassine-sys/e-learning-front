@@ -1,26 +1,48 @@
-<div class="main-content">
+<form #examForm="ngForm">
+  <div id="haha" class="container">
+    <div class="main-content">
+      <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <span style="text-align: center">
+          <img style="text-align: center" src="./assets/img/exam.jpg" />
+        </span>
+        <div class="form-group">
+          <label><b>New exam</b></label>
+          <input [(ngModel)]="examen.Title" type="text" name="Title" placeholder="Enter a new exam"
+            required>
+        </div>
+       
 
-    <section fxLayout="row wrap" fxLayoutAlign="center center">
-      <mat-card fxFlex="500px" fxFlex.xs="100%">
-          <mat-card-title>Create a new Exam</mat-card-title>
-          <form [formGroup]="examForm" autocomplete="off" novalidate (ngSubmit)="createExam(examForm.value)" fxLayout="column wrap"
-        fxLayoutAlign="center center" fxLayoutGap="10px">
-          <mat-card-content>
 
-            <mat-form-field>
-              <input matInput type="text" placeholder="Exam's title" formControlName="Title" id="Title">
-              <mat-hint align="end">Not more then 60 characters long.</mat-hint>
-              <mat-error *ngIf="hasError('Title', 'required')">Name is required</mat-error>
-              <mat-error *ngIf="hasError('Title', 'maxlength')">You have more than 60 characters</mat-error>
-            </mat-form-field>  
-                      
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" [disabled]="!examForm.valid" >Create</button>
-            <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
-          </mat-card-actions>
-  
-        </form>
-        </mat-card>
-    </section>
+        <div class="form-group">
+          <button (click)="onSubmit(examForm)" class="btn btn-success btn-lg btn-block"><i id="eye"
+              class="fa fa-plus" aria-hidden="true"></i> Add exam</button>
+        </div>
+      </section>
     </div>
+  </div>
+</form>
+
+<div>
+  <h1> exam List</h1>
+  <div class="table-responsive-vertical shadow-z-1">
+    <table id="table" style="width:60%" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Exam</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let e of exams">
+        <td>{{e.Id}}</td>
+        <td>{{e.Title}}</td>
+        <td><i class="fa fa-trash" (click)=toggledisplay(e.Id)></i>
+        </td>
+        
+      </tbody>
+    </table>
+    <div id="test" [hidden]="isShow" class="container">Are you sure you want to remove the exam {{id}}
+      <td><button  (click)="toggledisplay(id)" (click)="onDelete(id)"><b>Yes</b></button></td>
+      <td><button (click)="toggledisplay(id)"><b>Nooo</b></button></td>
+    </div>
+  </div>

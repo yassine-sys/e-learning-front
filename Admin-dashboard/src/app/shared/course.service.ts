@@ -9,27 +9,27 @@ import { Observable } from 'rxjs';
 })
 export class CourseService {
 
-  public ApiURL = 'https://localhost:44306/api';
+  public ApiURL = 'https://localhost:44352/api';
 
   constructor(private http: HttpClient) { }
 
   postCourse(formData) {
-    return this.http.post(this.ApiURL+ '/Courses', formData);
+    return this.http.post(this.ApiURL+ '/course', formData);
   }
 
   putCourse(id,formData) {
-    return this.http.put(this.ApiURL + '/Courses/' + id, formData);
+    return this.http.put(this.ApiURL + '/course/' + id, formData);
   }
 
   deleteCourse(id) {
-    return this.http.delete(this.ApiURL + '/Courses/' + id);
+    return this.http.delete(this.ApiURL + '/course/' + id);
   }
 
   getCoursesList() {
-    return this.http.get(this.ApiURL + '/Courses');
+    return this.http.get(this.ApiURL + '/course');
   }
   getImage(id){
-    return this.http.get(this.ApiURL+ '/GetImage/' +id);
+    return this.http.get(this.ApiURL+ '/course/GetImage/' +id);
   }
   postFile(formDataimg,fileToUpload:File) {
   
@@ -39,10 +39,10 @@ export class CourseService {
     formData.append('Description', formDataimg.Description);
     formData.append('DepartmentID', formDataimg.DepartmentID);
 
-    return this.http.post(this.ApiURL+ '/uploadimage', formData);
+    return this.http.post(this.ApiURL+ '/course/uploadimage', formData);
   }
   getCourseByID(id) {
-    return this.http.get(this.ApiURL + '/Course/' +id);
+    return this.http.get(this.ApiURL + '/course/' +id);
   }
 
 }

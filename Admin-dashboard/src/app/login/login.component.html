@@ -1,0 +1,42 @@
+<form>
+  <div class="container">
+      <div class="login-box">
+          <div class="main-content">
+              <section fxLayout="row wrap" fxLayoutAlign="center center">
+                  <span style="text-align: center">
+                      <img style="text-align: center" src="./assets/img/logo.jpg" />
+                  </span>
+                  <div class="user-box">
+                      <div *ngIf="isLoginError" class="red-text center error-message">
+                          <i class="material-icons">error</i> Incorrect username or password
+                      </div>
+                      <br>
+                      <form #userLoginForm="ngForm" (ngSubmit)="OnSubmit(Username?.value,Password?.value)">
+
+                          <div class="user-box">
+                              <label for="email"><b><i id="fa" class="fa fa-user" aria-hidden="true"></i> Username</b></label>
+                              <input type="text" #Username ngModel name="Username" placeholder="Enter Username or Email"
+                                  class="form-control" required>
+                          </div>
+                          <div class="user-box">
+                              <label for="psw"><b><i id="fa" class="fa fa-lock" aria-hidden="true"></i> Password</b></label>
+                              <input type="password" #Password ngModel name="Password" placeholder="Enter Password"
+                                  class="form-control" required>
+                          </div>
+                          <div class="form-group">
+                              <div class="vertical-center">
+                                  <button class="fa fa-sign-in" type="submit" class="btn btn-primary btn-lg btn-block"
+                                      [disabled]="!userLoginForm.valid"><i class="fa fa-sign-in"
+                                      aria-hidden="true"></i> Sign In</button>
+                              </div>
+                              <p style="text-align: center">You don't have an account yet? <a routerLink="/sign-up"
+                                      style="color:dodgerblue">Sign
+                                      Up</a></p>
+                          </div>
+                      </form>
+                  </div>
+              </section>
+          </div>
+      </div>
+  </div>
+</form>

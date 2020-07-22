@@ -97,7 +97,7 @@ public updateQuiz(quizFormValue) {
 private executeQuizUpdate(quizFormValue) {
 
   this.quiz.Title = quizFormValue.Title;
-  this.quiz.CourseID= quizFormValue.CourseID;
+ // this.quiz.CourseID= quizFormValue.CourseID;
 
   let apiUrl = `api/Quizs/${this.id}`;
   this.repository.update(apiUrl, this.quiz)

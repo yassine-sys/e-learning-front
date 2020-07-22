@@ -22,6 +22,9 @@ import {FileUploadComponent} from '../../file-upload/file-upload.component';
 import { BusinessUnitComponent } from 'app/business-unit/business-unit.component';
 import { DepartmentComponent } from 'app/department/department.component';
 import { UserComponent } from 'app/user/user.component';
+import { LoginComponent } from 'app/login/login.component';
+import { HomeComponent } from 'app/home/home.component';
+import { AuthGuard } from 'app/auth/auth.guard';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -68,7 +71,11 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
+  //  { path: 'user-profile',   component: UserProfileComponent },
+   // { path: 'login',   component: LoginComponent },
+    //{path: 'home', component: HomeComponent,canActivate:[AuthGuard]},
+
+
     { path: 'table-list',     component: TableListComponent },
     { path: 'file-upload',     component: FileUploadComponent },
     { path: 'video-reader',     component: VideoReaderComponent },
@@ -86,9 +93,9 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'section-form/:id',   component:SectionFormComponent},
     {path: 'paragraphs-list/:id',   component:ParagraphsListComponent},
     {path: 'paragraph-form/:id',   component:ParagraphFormComponent},
-    { path: '/business-unit', component:BusinessUnitComponent },
-    { path: 'business-unit/:id',        component: DepartmentComponent },
-    { path: 'department/:id',        component: UserComponent },
+    //{ path: '/business-unit', component:BusinessUnitComponent },
+    //{ path: 'business-unit/:id',        component: DepartmentComponent },
+    //{ path: 'department/:id',        component: UserComponent },
    
 
 

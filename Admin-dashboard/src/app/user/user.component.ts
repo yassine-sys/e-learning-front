@@ -19,8 +19,9 @@ import { MatPaginator } from '@angular/material/paginator';
 export class UserComponent implements OnInit {
   private dialogConfig;
 
-  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  passwordpattern = "^(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=[^0-9]*[0-9]).{6,30}$";
+ // emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  //passwordpattern = "^(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=[^0-9]*[0-9]).{6,30}$";
+  userClaims: any;
 
   constructor(private http: HttpClient
     ,private userservice:UserService
@@ -30,6 +31,7 @@ export class UserComponent implements OnInit {
   users: string[]; 
   user:User
   public DepartmentID
+ // roles : any[];
 
   displayedColumns: string[] = ['Id', 'FirstName', 'LastName','Email','UserName','onDelete'];
   dataSource = new MatTableDataSource<User>();
@@ -40,10 +42,21 @@ export class UserComponent implements OnInit {
     console.log(this.DepartmentID)
     this.resetForm();
     this.list()
-   
-   
+    this.userservice.getUserClaims().subscribe((data: any) => {
+      this.userClaims = data;
+    })
+   /* this.userservice.getAllRoles().subscribe((data : any)=>{
+      data.forEach(obj => obj.selected = false);
+      this.roles = data;
+    }
+  );
+   */
 
   }
+
+ /* updateSelectedRoles(index) {
+    this.roles[index].selected = !this.roles[index].selected;
+  }*/
 /*userlist(){
   this.http.get('https://localhost:44306/api/Account/users').subscribe(  
       data => {  
@@ -57,18 +70,21 @@ resetForm(form?:NgForm){
   form.reset();
   this.user= {
     Id:'',
-    Username:'',
+    //Username:'',
     Email:'',
-    FirstName:'',
-    LastName:'',
+    //FirstName:'',
+   // LastName:'',
     Password:'',
     ConfirmPassword:'',
     DepartmentID:this.DepartmentID
   }
+ /* if (this.roles)
+  this.roles.map(x => x.selected = false);*/
   
 }
 
   onSubmit(form:NgForm){
+   // var x = this.roles.filter(x => x.selected).map(y => y.Name);
 
     this.userservice.registerUser(form.value).subscribe((res:any)=>{
       let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
@@ -104,7 +120,12 @@ resetForm(form?:NgForm){
      });
     }
   
-
+    Logout() {
+      localStorage.removeItem('userToken');
+      console.log("user logged out");
+    }
+      
+       
 }
 
 

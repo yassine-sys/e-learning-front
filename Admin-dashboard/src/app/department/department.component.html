@@ -1,110 +1,48 @@
-<div class="main-content">
+<div>
+  <h1> department List</h1>
+  <div class="table-responsive-vertical shadow-z-1">
+    <table id="table" style="width:60%" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="department" *ngFor="let departement of departement">
+        <td>{{departement.Id}}</td>
+        <td>{{departement.Name}}</td>
+        <td>{{departement.Description}}</td>
+        <td><i class="fa fa-trash" (click)=toggledisplay(departement.Id)></i></td>
+      </tbody>
+    </table>
+    <div id="test" [hidden]="isShow" class="container">Are you sure you want to remove the department {{id}}
+      <td><button (click)="onDelete(id)"><b>Yes</b></button></td>
+      <td><button (click)=toggledisplay(id)><b>Nooo</b></button></td>
 
-  <section fxLayout="row wrap" fxLayoutAlign="center center">
-    <mat-card fxFlex="500px" fxFlex.xs="100%">
-         
-     
-      
-      
-        <form #departmentForm="ngForm" (ngSubmit)="onSubmit(departmentForm)">
-
-          <div class="form-group">
-        
-            <input type="hidden" [(ngModel)]="department.DepartmentID" name="DepartmentID" class="form-control" placeholder="DepartmentID">
-     
-          </div>
-
-          <div class="form-group">
-        
-            <input type="hidden" [(ngModel)]="department.BusinessUnitId" name="BusinessUnitId" class="form-control" placeholder="BusinessUnitId">
-     
-          </div>
-
-      
-          <div class="form-group">
-        
-            <input type="text" [(ngModel)]="department.Name" name="Name" class="form-control" placeholder="Name">
-     
-          </div>
-  
-      
-          <div class="form-group">
-       
-            <input type="text" [(ngModel)]="department.Description" name="Description" class="form-control" placeholder="Description">
-      
-          </div>
-     
-          <div class="form-group">
-        
-            <button type="submit" class="btn btn-success btn-lg btn-block" >Create Department</button>
-
-      
-          </div>
-        </form>
-    </mat-card>
-  </section>
-
-
-  <section fxLayout="row wrap" fxLayoutAlign="center center">
-    <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <div>
-        <button class="btn btn-success btn-lg btn-block"(click)="onEdit(DepartmentID,department)">Edit</button>
-      </div>
-    </mat-card>
-  </section>
-
-      
-</div>
-
-
-<div fxLayout fxLayoutAlign="center center">
-  <div fxFlex="60">
-    <div class="mat-elevation-z8">
-      <table class="table table-striped" mat-table [dataSource]="dataSource" matSort>
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="DepartmentID">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>  Id </th>
-          <td mat-cell *matCellDef="let emp "> {{emp.DepartmentID}}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="Name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-          <td mat-cell *matCellDef="let emp"> {{emp.Name}} </td>
-        </ng-container>
-
-        <!-- adress Column -->
-        <ng-container matColumnDef="Description">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-          <td mat-cell *matCellDef="let emp"> {{emp.Description}} </td>
-        </ng-container>
-
-       
-
-        <ng-container matColumnDef="onDelete">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Delete </th>
-        <td mat-cell *matCellDef="let emp"> <button   mat-button  color="warn"  (click)="onDelete(emp.DepartmentID)">Delete</button></td>
-
-      </ng-container>
-        <ng-container matColumnDef="onUpdate">
-          <th mat-header-cell *matHeaderCellDef>Edit </th>  
-          <td mat-cell *matCellDef="let emp"> <button   mat-button color="primary"  (click)="onEdit(emp.DepartmentID,emp)"  >Edit</button></td>
-        </ng-container>
-
-      <ng-container matColumnDef="onSelect">
-        <th mat-header-cell *matHeaderCellDef>My Users </th>  
-        <td mat-cell *matCellDef="let emp"> <button   mat-button color="link"  (click)="onSelect(emp)"  >My Users</button></td>
-      </ng-container>
-
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      <mat-paginator [pageSize]="6" [pageSizeOptions]="[2, 4, 6, 10, 20]">
-      </mat-paginator>
     </div>
   </div>
-</div>
 
+  <form #depForm="ngForm">
+    <div id="haha" class="container">
+        <div class="main-content">
+            <section fxLayout="row wrap" fxLayoutAlign="center center">
+                <span style="text-align: center">
+                    <img style="text-align: center" src="./assets/img/department.jpg" />
+                </span>
+                <div class="form-group">
+                    <label><b>New department</b></label>
+                    <input [(ngModel)]="dep.Name" type="text" name="Name" placeholder="Enter a new department name" required>
+                </div>
+                <div class="form-group">
+                  <input [(ngModel)]="dep.Description" type="text" name="Description" placeholder="Enter a new department description" required>
+              </div>
+                <div class="form-group">
+                    <button (click)="onSubmit(depForm)" class="btn btn-success btn-lg btn-block"><i id="eye" class="fa fa-plus"
+                        aria-hidden="true"></i> Add</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</form>

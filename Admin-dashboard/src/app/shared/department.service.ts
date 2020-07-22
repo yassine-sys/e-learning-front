@@ -9,13 +9,13 @@ import { Observable, from } from 'rxjs';
 })
 export class DepartmentService {
 
-  public ApiURL = 'https://localhost:44306/api';
+  public ApiURL = 'https://localhost:44352/api';
 
 
   constructor(private http: HttpClient) { }
   
   getDepartmentList(){ 
-    return this.http.get(this.ApiURL + '/Departments');
+    return this.http.get(this.ApiURL + '/department');
   }
 
 }

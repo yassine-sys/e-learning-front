@@ -1,6 +1,6 @@
 export default class Exam {
     ExamID : number;
-    CourseID : number;
+    //CourseID : number;
     Title: string;
     
 }

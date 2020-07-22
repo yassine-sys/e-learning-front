@@ -20,6 +20,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { CoursesListComponent } from 'app/course/courses-list/courses-list.component';
 import { BusinessUnitComponent } from 'app/business-unit/business-unit.component';
+import { HomeComponent } from 'app/home/home.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,7 @@ import { BusinessUnitComponent } from 'app/business-unit/business-unit.component
   ],
   declarations: [
     DashboardComponent,
-   // UserProfileComponent,
+    //UserProfileComponent,
     TableListComponent,
     TypographyComponent,
     
@@ -45,6 +46,7 @@ import { BusinessUnitComponent } from 'app/business-unit/business-unit.component
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    HomeComponent
   ]
 })
 

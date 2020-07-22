@@ -17,6 +17,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class UserListComponent implements OnInit {
   private dialogConfig;
+  userClaims: any;
 
   constructor(private http: HttpClient
     ,private userservice:UserService
@@ -33,6 +34,9 @@ export class UserListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit() {
     this.list()
+    this.userservice.getUserClaims().subscribe((data: any) => {
+      this.userClaims = data;
+    })
   }
   userlist(): Observable<Array<User>>{
    return this.http.get<Array<User>>('https://localhost:44306/api/Account/users')
@@ -55,5 +59,9 @@ export class UserListComponent implements OnInit {
       this.list()
     }) 
    }
+
+   Logout() {
+    localStorage.removeItem('userToken');
+  }
 
 }

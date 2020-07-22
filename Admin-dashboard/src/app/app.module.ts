@@ -28,7 +28,7 @@ import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {
   AgmCoreModule
 } from '@agm/core';
@@ -102,15 +102,21 @@ import { DepartmentComponent } from './department/department.component';
 import { UserComponent } from './user/user.component';
 import { UserService } from './user/user.service';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { MailComponent } from './mail/mail.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 
 const appRoutes: Routes = [
 {
     path: 'quiz-dashboard', component: QuizListComponent
-},{
+}/*,{
     path: 'create-quiz/:CourseID', component: CreateQuizComponent
-},{ 
+}*/,{ 
     path: 'quiz/delete/:QuizID', component: QuizDeleteComponent
 },{ 
     path: 'quiz/update/:QuizID', component: QuizUpdateComponent
@@ -162,7 +168,16 @@ const appRoutes: Routes = [
     path: 'user-exams/:Id', component: UsersExamsComponent
 },{
     path: 'business-unit', component: BusinessUnitComponent
-}
+},//{path:'user-profile' , component:UserProfileComponent},
+{
+    path: 'business-unit/:id', component: DepartmentComponent
+},
+{path: 'home', component: HomeComponent,canActivate:[AuthGuard]},
+//{path: 'login', component: HomeComponent},
+//{path: 'sign-up', component: SignUpComponent}
+
+
+
 ];
 
 @NgModule({
@@ -249,8 +264,11 @@ const appRoutes: Routes = [
     DepartmentComponent,
     UserComponent,
     UserListComponent,
-    UserProfileComponent
-   
+   UserProfileComponent,
+    MailComponent,
+    LoginComponent,
+    HomeComponent,
+    SignUpComponent,
     
 
   ],
@@ -258,7 +276,12 @@ const appRoutes: Routes = [
     
     UploadFileService, RepositoryService,CourseService, 
     SectionService, DepartmentService, ChapterService,EnvironmentUrlService,
-    BusinessUnitService,DepartmentService,UserService
+    BusinessUnitService,DepartmentService,UserService,AuthGuard,
+    {
+     provide : HTTP_INTERCEPTORS,
+     useClass : AuthInterceptor,
+     multi : true
+   }
   ],
   bootstrap: [AppComponent],
 })

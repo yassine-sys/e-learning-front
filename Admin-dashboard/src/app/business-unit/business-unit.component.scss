@@ -1,0 +1,330 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    background: #ddd;
+    font-family: sans-serif;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  input {
+    border:thick;
+    text-align: center;
+    font-size:16px;
+
+
+  }
+  
+  /*--------------------------------------------------------------
+  # Table
+  --------------------------------------------------------------*/
+  table {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+      0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+  }
+  #file{
+    color: #1976d2;
+    
+
+  }
+  
+  h1,h2{
+    color: #1976d2;
+    margin-left: 250px;
+  }
+  th{
+    text-align: center;
+  }
+  #save {
+    
+    background-color: white;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.9;
+    font-size:30px;
+    font-family: Montserrat,Arial, Helvetica, sans-serif;
+    border-radius:10px;
+  }
+  i{
+    color:#dad2d2;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  i1{
+    color:#f50404;
+  }
+  
+  th {
+    color: #ffffff;
+    background: #39a2fb;
+    font-weight: 700;
+    font-size:20px;
+  }
+  
+  tr {
+    background: #fff;
+    font-size:50px;
+  }
+  
+  tr:hover {
+    background: #f4f4f4;
+  }
+  
+  td {
+    word-wrap: break-word;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  /*--------------------------------------------------------------
+    # Small and medium screens
+    --------------------------------------------------------------*/
+  @media all and (max-width: 900px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+  
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    table {
+      box-shadow: none;
+    }
+    
+  
+    tr {
+      margin: 0 0 1rem 0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+      border-top: 5px solid #39a2fb;
+      border-radius: 7px;
+      padding-right: 5px;
+    }
+  
+    tr:hover {
+      background: #fff;
+    }
+  
+    td {
+      border: none;
+      position: relative;
+      padding-left: 50%;
+      text-align: right;
+    }
+  
+    td:before {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-title);
+      font-weight: bold;
+      text-align: left;
+    }
+
+  }
+  
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+img {
+  margin-left: 100px;
+	width: 250px;
+	height: 250px;
+}
+body {
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	background-color:#f7f7f7;
+}
+* {box-sizing: border-box}
+
+/* Add padding to container elements */
+.container {
+    padding: 20px;
+      width:500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+      border:1px solid #ccc;
+      border-radius:10px;
+      background:white;
+  -webkit-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  -moz-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  }
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+select {
+  width: 18%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+
+input[type=phone] {
+  width: 81%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=phone]:focus, select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+#haha {
+  margin-left: 500px;
+  margin-top: 0px;
+
+}
+
+#show,#hzh {
+  background-color: #0eb7f4;
+  color: white;}
+
+#show {
+  background-color: #0eb7f4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+	font-size:16px;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+  border-radius:10px;
+}
+/* Set a style for all buttons */
+button {
+  background-color: rgb(239, 239, 247);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  margin-left: 100px;
+  border: none;
+  margin-left: 120px;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+	font-size:16px;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	border-radius:10px;
+}
+#eye{
+  color: white;
+}
+button:hover {
+  opacity:1;
+}
+
+
+/* Change styles for signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .signupbtn {
+     width: 100%;
+  }
+}
+
+.youtubeBtn{
+    position: fixed;
+    right: 20px;
+  transform:translatex(-50%);
+    top: 20px;
+    cursor: pointer;
+    transition: all .3s;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+  background:#000;
+  padding:2px 10px;
+  border-radius:5px;
+}
+#fdf{
+  text-align: center;
+  margin-left: 60px;
+}
+#nihel{
+  width:500px;
+  height: 250px;
+}
+#nihel2{
+  width:100px;
+  height: 100px;
+  margin-left: 170px;
+}
+#nihel3{
+  width: 30%;
+  margin-left: 70px;
+}
+.youtubeBtn i{
+   font-size:20px;
+  float:left;
+}
+.youtubeBtn a{
+    color:#ff0000;
+    animation: youtubeAnim 1000ms linear infinite;
+  float:right;
+}
+.youtubeBtn a:hover{
+  color:#c9110f;
+  transition:all .3s ease-in-out;
+}
+.youtubeBtn i:active{
+  transform:scale(.9);
+  transition:all .3s ease-in-out;
+}
+#table{
+  margin-left: 70px;
+}
+.youtubeBtn span{
+    font-family: 'Lato';
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    float: right;
+    line-height: 20px;
+    padding-left: 5px;
+  
+}
+
+@keyframes youtubeAnim{
+  0%,100%{
+    color:#c9110f;
+  }
+  50%{
+    color:#ff0000;
+  }
+  
+}

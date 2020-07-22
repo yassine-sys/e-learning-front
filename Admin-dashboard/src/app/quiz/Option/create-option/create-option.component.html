@@ -1,46 +1,57 @@
-<div class="main-content">
+<form #optionForm="ngForm">
+  <div id="haha" class="container">
+    <div class="main-content">
+      <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <span style="text-align: center">
+          <img style="text-align: center" src="./assets/img/option.jpg" />
+        </span>
+        <div class="form-group">
+          <label><b>New option</b></label>
+          <input [(ngModel)]="option.OptionText" type="text" name="OptionText" placeholder="Enter a new option"
+            required>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Values</mat-label>
+          <mat-select [(ngModel)]=option.values name="values">
+            <mat-option *ngFor="let value of values" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-  <section fxLayout="row wrap" fxLayoutAlign="center center">
-    <mat-card fxFlex="500px" fxFlex.xs="100%">
-        <mat-card-title>Create a new Option</mat-card-title>
-        <form [formGroup]="optionForm" autocomplete="off" novalidate (ngSubmit)="createOption(optionForm.value)" fxLayout="column wrap"
-      fxLayoutAlign="center center" fxLayoutGap="10px">
-        <mat-card-content>
 
-          <mat-form-field>
-            <input matInput type="text" placeholder="Option" formControlName="OptionText" id="OptionText">
-            <mat-hint align="end">Not more then 60 characters long.</mat-hint>
-            <mat-error *ngIf="hasError('OptionText', 'required')">Name is required</mat-error>
-            <mat-error *ngIf="hasError('OptionText', 'maxlength')">You have more than 60 characters</mat-error>
-          </mat-form-field>  
-                  
-
-          <mat-form-field appearance="fill">
-            <mat-label>Values</mat-label>
-            <mat-select formControlName="values" >
-              <mat-option *ngFor="let valeur of values" [value]="valeur">
-                {{valeur}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>    
-                     
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button class="btn btn-success" [disabled]="!optionForm.valid" >Create</button>
-          <button type="button" mat-raised-button class="btn btn-info" (click)="onCancel()">Cancel</button>
-        </mat-card-actions>
-
-      </form>
-      </mat-card>
-  </section>
+        <div class="form-group">
+          <button (click)="onSubmit(optionForm)" class="btn btn-success btn-lg btn-block"><i id="eye"
+              class="fa fa-plus" aria-hidden="true"></i> Add option</button>
+        </div>
+      </section>
+    </div>
   </div>
+</form>
 
-
-
-
-
-
-
-
-
-
+<div>
+  <h1> option List</h1>
+  <div class="table-responsive-vertical shadow-z-1">
+    <table id="table" style="width:60%" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Option</th>
+          <th>Values</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let o of options">
+        <td>{{o.Id}}</td>
+        <td>{{o.OptionText}}</td>
+        <td>{{o.values}}</td>
+        <td><i class="fa fa-trash" (click)=toggledisplay(o.Id)></i>
+        </td>
+        
+      </tbody>
+    </table>
+    <div id="test" [hidden]="isShow" class="container">Are you sure you want to remove the option {{id}}
+      <td><button (click)="onDelete(id)" (click)="toggledisplay(id)"><b>Yes</b></button></td>
+      <td><button (click)="toggledisplay(id)"><b>Nooo</b></button></td>
+    </div>
+  </div>

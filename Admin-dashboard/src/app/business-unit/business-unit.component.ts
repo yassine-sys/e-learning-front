@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BusinessUnit } from './business-unit.model';
 import { BusinessUnitService } from './business-unit.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -10,43 +10,48 @@ import { MatSort } from '@angular/material/sort';
 import { Observable } from 'rxjs';
 import { SuccessDialogComponent } from 'app/shared/dialogs/success-dialog/success-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UserService } from 'app/user/user.service';
 
 @Component({
   selector: 'app-business-unit',
   templateUrl: './business-unit.component.html',
-  styleUrls: ['./business-unit.component.css']
+  styleUrls: ['./business-unit.component.scss']
 })
 export class BusinessUnitComponent implements OnInit {
   private dialogConfig;
+ // public BusinessUnitId;
 
   businessunit:BusinessUnit;
+  test = new BusinessUnit();
   constructor(private businessunitservice:BusinessUnitService
     ,private http:HttpClient
     ,private router: Router
-    ,private dialog: MatDialog) { }
-  businessunits:any;
+    ,private dialog: MatDialog
+    , private userService: UserService,
+    private route :ActivatedRoute) { }
+  //c:any;
+  //userClaims: any;
 
   business_unit:any=[];
-  displayedColumns: string[] = ['BusinessUnitId', 'Name', 'Description','onDelete','onUpdate','onSelect'];
-  dataSource = new MatTableDataSource<BusinessUnit>();
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  
   
   ngOnInit() {
-    this.resetForm();
-    this.businessunitlist().subscribe((data: any) => {
-      this.dataSource.data = data as BusinessUnit[];
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      console.log(data);
-    });
+    //this.BusinessUnitId=this.route.snapshot.paramMap.get('id');
+
+    //this.userService.getUserClaims().subscribe((data: any) => {
+     // this.userClaims = data;
+//console.log(data)
+
+//this.Id=this.userService.user.Id
+//this.list()
+    //}//);
+
+   
     this.list()
   }
   list(){
     this.businessunitlist().subscribe((data: any) => {
-      this.dataSource.data = data as BusinessUnit[];
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
+      this.business_unit=data
       console.log(data);
     });
 
@@ -56,7 +61,7 @@ export class BusinessUnitComponent implements OnInit {
     if (form!=null)
     form.reset();
     this.businessunit={
-      BusinessUnitId:0,
+      Id:0,
       Name:'',
       Description:''
     }
@@ -65,6 +70,7 @@ export class BusinessUnitComponent implements OnInit {
   onSubmit(form:NgForm){
     this.businessunitservice.addBusinessunit(form.value).subscribe((res:any)=>{
       this.businessunit=res;
+      console.log("test");
       let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
 
       this.resetForm(form);
@@ -77,7 +83,7 @@ export class BusinessUnitComponent implements OnInit {
   }
 
   businessunitlist(): Observable<Array<BusinessUnit>>{
-   return this.http.get<Array<BusinessUnit>>('https://localhost:44306/api/BusinessUnits')
+   return this.http.get<Array<BusinessUnit>>('https://localhost:44352/api/businessUnit')
      /* res=>{
         this.businessunits=res as string [];
         
@@ -103,10 +109,11 @@ export class BusinessUnitComponent implements OnInit {
 
   onUpdate(BusinessUnitId:any,businessunit:BusinessUnit){
     this.businessunitservice.onUpdate(BusinessUnitId,businessunit).subscribe(res=>{
-      this.businessunit.BusinessUnitId=businessunit.BusinessUnitId
+      this.businessunit.Id=businessunit.Id
       this.businessunit.Name=businessunit.Name
       this.businessunit.Description=businessunit.Description
       res=this.businessunit
+      let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
 
       console.log(res);
       this.list()
@@ -117,9 +124,7 @@ export class BusinessUnitComponent implements OnInit {
 
   }
   onSelect(businessunit){
-    this.router.navigate(['/business-unit',businessunit.BusinessUnitId])
+    this.router.navigate(['/business-unit',businessunit.Id])
 
   }
-
-
 }

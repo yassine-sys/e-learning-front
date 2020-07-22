@@ -7,26 +7,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BusinessUnitService {
   businessunit:BusinessUnit;
-  readonly rootUrl = 'https://localhost:44306';
+  readonly rootUrl = 'https://localhost:44352';
   constructor(private http: HttpClient) { }
 
   addBusinessunit(businessunit:BusinessUnit){
     const body:BusinessUnit={
-      BusinessUnitId:businessunit.BusinessUnitId,
+      Id:businessunit.Id,
       Name:businessunit.Name,
       Description:businessunit.Description
     }
-    return this.http.post(this.rootUrl + '/api/BusinessUnits', body);
+    return this.http.post(this.rootUrl + '/api/businessUnit', body);
   }
 
   onDelete(BusinessUnitId:any){
     
     
-    return this.http.delete('https://localhost:44306/api/BusinessUnits/'+BusinessUnitId);
+    return this.http.delete('https://localhost:44352/api/businessUnit/'+BusinessUnitId);
   }
   onUpdate(BusinessUnitId:any,businessunit:BusinessUnit){
 
-  return this.http.put('https://localhost:44306/api/BusinessUnits/'+businessunit.BusinessUnitId,businessunit);
+  return this.http.put('https://localhost:44352/api/businessUnit/'+businessunit.Id,businessunit);
 
   
 }

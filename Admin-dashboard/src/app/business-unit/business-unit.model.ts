@@ -1,5 +1,5 @@
 export class BusinessUnit {
-    BusinessUnitId:number;
+    Id:number;
     Name: String;
     Description: String;
 }

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class UploadFileService {
 
  // formData : File;
- public ApiURL = 'https://localhost:44306/api';
+ public ApiURL = 'https://localhost:44352/api/File';
 
   
   constructor(private http:HttpClient) { }

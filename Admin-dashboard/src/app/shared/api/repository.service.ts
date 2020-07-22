@@ -11,8 +11,8 @@ import user from '../models/user';
 @Injectable()
 export class RepositoryService {
 
-  public API = 'https://localhost:44306/api';
-  public QUIZ_API = `${this.API}/Quizs`;
+  public API = 'https://localhost:44352/api';
+  public QUIZ_API = `${this.API}/quiz`;
   public OPTION_API = `${this.API}/Options`;
   public QUESTION_API = `${this.API}/Questions`;
   public EXAM_API = `${this.API}/Exams`;

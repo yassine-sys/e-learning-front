@@ -8,20 +8,22 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
+  {path: '/sign-up', title:'sign-up',  icon:'person', class: ''},
+
+   // { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+   // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
     { path: '/video-reader', title: 'Video Reader',  icon:'person', class: '' },
-    { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    { path: '/courses-list', title: 'Courses List',  icon:'reorder', class: '' },
-    { path: '/icons', title: 'icons',  icon:'bubble_chart', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+   // { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
+   // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
+    { path: '/course-list', title: 'Courses List',  icon:'reorder', class: '' },
+    //{ path: '/icons', title: 'icons',  icon:'bubble_chart', class: '' },
+    //{ path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     { path: '/quiz-dashboard', title: 'Manage Quizzes',  icon:'library_books', class: '' },
     { path: '/exam-dashboard', title: 'Manage Exams',  icon:'content_paste', class: '' },
     { path: '/users-dashboard', title: 'Users Dashboard',  icon: 'dashboard', class: '' },
    // { path: '/video-reader', title: 'Video',  icon:'library_books', class: '' },
     { path: '/file-upload', title: 'file-upload',  icon:'library_books', class: '' },
-    { path: '/business-unit', title: 'business unit',  icon: '', class: '' },
+  //  { path: '/business-unit', title: 'business unit',  icon: '', class: '' },
 
 
 
