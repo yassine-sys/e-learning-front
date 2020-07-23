@@ -47,18 +47,25 @@ import { CoursesListComponent } from './course/courses-list/courses-list.compone
 import { UploadFileService } from './shared/upload-file.service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { QuizlistedComponent } from './quizlisted/quizlisted.component';
+import { AuthGuarde } from './auth/auth.guarde';
+import { QuizPassComponent } from './quiz-pass/quiz-pass.component';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'sign-up',
         pathMatch: 'full',
+       
         
     
     },
+{path:'login',component:LoginComponent, canActivate: [AuthGuarde]},
+{path:'sign-up',component:SignUpComponent},
 
     
-     { path: 'login', component: LoginComponent },
+
+
     {
         path: '',
         component: AdminLayoutComponent,
@@ -67,9 +74,8 @@ const routes: Routes = [
             loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
         }, {
             path: 'quiz-dashboard', component: QuizListComponent
-        }/* {
-            path: 'create-quiz/:CourseID', component: CreateQuizComponent
-        }*/, {
+        },
+         {
             path: 'quiz/delete/:QuizID', component: QuizDeleteComponent
         }, {
             path: 'quiz/update/:QuizID', component: QuizUpdateComponent
@@ -132,11 +138,9 @@ const routes: Routes = [
             path: 'business-unit/:id', component: DepartmentComponent, canActivate: [AuthGuard]
         },
         { path: 'mail', component: MailComponent },
-       // { path: 'login', component: LoginComponent },
         {
             path: 'home', component: HomeComponent, canActivate: [AuthGuard]
-        }
-            , //{ path: 'user-profile', component: UserProfileComponent },
+        }, 
         { path: 'course-form', component: CourseFormComponent },
         { path: 'course-list', component: CoursesListComponent },
         { path: 'course-quiz/:id', component: CreateQuizComponent },
@@ -144,15 +148,11 @@ const routes: Routes = [
 
         { path: 'quiz/:id', component: CreateQuestionComponent },
         { path: 'question/:id', component: CreateOptionComponent },
-
-
-
-            
+        { path: 'exam/:id', component: CreateExamQuestionComponent },
+        { path: 'question-exam/:id', component: CreateOptionComponent },
+        {path:'course-passquiz/:id',component:QuizlistedComponent},
+        {path:'myquiz/:id',component:QuizPassComponent},            
         { path: 'file-upload', component: FileUploadComponent },
-        { path: 'sign-up', component: SignUpComponent , canActivate: [AuthGuard]}
-
-
-
         ]
     }]
 

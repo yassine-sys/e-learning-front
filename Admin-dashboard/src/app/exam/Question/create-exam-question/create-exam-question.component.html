@@ -1,51 +1,58 @@
-<div class="main-content">
+<form #questionForm="ngForm">
+  <div id="haha" class="container">
+    <div class="main-content">
+      <section fxLayout="row wrap" fxLayoutAlign="center center">
+        <span style="text-align: center">
+          <img style="text-align: center" src="./assets/img/question.jpg" />
+        </span>
+        <div class="form-group">
+          <label><b>New question</b></label>
+          <input [(ngModel)]="question.QuesText" type="text" name="QuesText" placeholder="Enter a new question"
+            required>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Values</mat-label>
+          <mat-select [(ngModel)]=question.types name="types">
+            <mat-option *ngFor="let type of types" [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-    <section fxLayout="row wrap" fxLayoutAlign="center center">
-      <mat-card fxFlex="500px" fxFlex.xs="100%">
-          <mat-card-title>Create a new Question</mat-card-title>
-          <form [formGroup]="questionForm" autocomplete="off" novalidate (ngSubmit)="createQuestion(questionForm.value)" fxLayout="column wrap"
-        fxLayoutAlign="center center" fxLayoutGap="10px">
-          <mat-card-content>
-  
-            <mat-form-field>
-              <input matInput type="text" placeholder="Question's text" formControlName="QuesText" id="QuesText">
-              <mat-hint align="end">Not more then 60 characters long.</mat-hint>
-              <mat-error *ngIf="hasError('QuesText', 'required')">Name is required</mat-error>
-              <mat-error *ngIf="hasError('QuesText', 'maxlength')">You have more than 60 characters</mat-error>
-            </mat-form-field>  
-  
-   
-           <mat-form-field appearance="fill">
-              <mat-label>Values</mat-label>
-              <mat-select formControlName="types" >
-                <mat-option *ngFor="let type of types" [value]="type">
-                  {{type}}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="hasError('types', 'required')">Name is required</mat-error>
-            </mat-form-field> 
-                      
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button class="btn btn-success"  [disabled]="!questionForm.valid" >Create</button>
-            <button type="button" mat-raised-button class="btn btn-info"  (click)="onCancel()">Cancel</button>
-          </mat-card-actions>
-  
-        </form>
-        </mat-card>
-    </section>
+
+        <div class="form-group">
+          <button (click)="onSubmit(questionForm)" class="btn btn-success btn-lg btn-block"><i id="eye"
+              class="fa fa-plus" aria-hidden="true"></i> Add question</button>
+        </div>
+      </section>
     </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  </div>
+</form>
+
+<div>
+  <h1> question List</h1>
+  <div class="table-responsive-vertical shadow-z-1">
+    <table id="table" style="width:60%" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Question</th>
+          <th>Types</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let q of questions">
+        <td>{{q.Id}}</td>
+        <td>{{q.QuesText}}</td>
+        <td>{{q.types}}</td>
+        <td><i class="fa fa-trash" (click)=toggledisplay(q.Id)></i>
+          <i class="fa fa-eye" (click)="onSelect(q)"></i>
+        </td>
+        
+      </tbody>
+    </table>
+    <div id="test" [hidden]="isShow" class="container">Are you sure you want to remove the question {{id}}
+      <td><button (click)="onDelete(id)" (click)="toggledisplay(id)"><b>Yes</b></button></td>
+      <td><button (click)="toggledisplay(id)"><b>Nooo</b></button></td>
+    </div>
+  </div>

@@ -6,5 +6,5 @@ export class User {
     Password : string;
     ConfirmPassword : string;
    // Username : string;
-    DepartmentID:any;
+   // DepartmentID:any;
 }

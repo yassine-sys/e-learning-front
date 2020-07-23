@@ -20,7 +20,7 @@ registerUser(user:User/*,roles:string[]*/){
    // FirstName: user.FirstName,
    // LastName: user.LastName,
 
-    DepartmentID:user.DepartmentID,
+  //  DepartmentID:user.DepartmentID,
 
     //Roles : roles
 

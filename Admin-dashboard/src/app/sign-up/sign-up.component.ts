@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from 'app/shared/dialogs/success-dialog/success-dialog.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SignupService } from './signup.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,11 +20,12 @@ export class SignUpComponent implements OnInit {
 
 
   constructor(private http: HttpClient
-    ,private userservice:UserService
+    ,private userservice:SignupService
     ,private router: Router
     ,private route:ActivatedRoute
     ,private dialog: MatDialog) { }
     user: User
+    users=new User
     public DepartmentID
   ngOnInit() {
     this.resetForm();
@@ -35,13 +37,10 @@ export class SignUpComponent implements OnInit {
       form.reset();
     this.user = {
       Id: '',
-      // Username:'',
       Email: '',
-      //FirstName:'',
-      //LastName:'',
       Password: '',
       ConfirmPassword: '',
-      DepartmentID: this.DepartmentID
+     // DepartmentID: this.DepartmentID
     }
 
   }
@@ -50,7 +49,6 @@ export class SignUpComponent implements OnInit {
       let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
       this.user = res;
       this.resetForm(form);
-    }, err => {
-      console.log(err);})
+    })
   }
 }

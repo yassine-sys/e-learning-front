@@ -3,6 +3,7 @@ import { User } from 'app/user/user.model';
 import { UserService } from 'app/user/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   user:User
   isLoginError : boolean = false;
-  constructor(private userService : UserService,private router : Router) { }
+  constructor(private userService : LoginService,private router : Router) { }
 
   ngOnInit() {
     

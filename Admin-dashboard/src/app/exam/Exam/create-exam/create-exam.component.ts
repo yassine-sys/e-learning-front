@@ -95,6 +95,9 @@ public CourseID
     })
     
   }
+  onSelect(exam){
+    this.router.navigate(['/exam',exam.Id])
+  }
 
   public hasError = (controlName: string, errorName: string) =>{
     return this.examForm.controls[controlName].hasError(errorName);

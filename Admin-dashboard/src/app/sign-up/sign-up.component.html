@@ -1,4 +1,4 @@
-<form #userRegistrationForm="ngForm" (ngSubmit)="onSubmit(userRegistrationForm)">
+<form #userRegistrationForm="ngForm" >
     <div class="container">
         <div class="main-content">
             <section fxLayout="row wrap" fxLayoutAlign="center center">
@@ -7,22 +7,22 @@
                 </span>
                 <div class="form-group">
                     <label for="email"><b><i id="fa" class="fa fa-envelope" aria-hidden="true"></i> Email</b></label>
-                    <input type="text" #Username ngModel name="Email" name="Email" class="form-control"
+                    <input type="text"  [(ngModel)]=users.Email name="Email" name="Email" class="form-control"
                         placeholder="Enter Email" required>
                 </div>
                 <div class="form-group">
                     <label for="password"><b><i id="fa" class="fa fa-lock" aria-hidden="true"></i> Password</b></label>
-                    <input type="password" #Password ngModel name="Password" class="form-control"
+                    <input type="password" [(ngModel)]=users.Password name="Password" class="form-control"
                         placeholder="Enter Password" required>
                 </div>
                 <div class="form-group">
                     <label for="password"><b><i id="fa" class="fa fa-lock" aria-hidden="true"></i> Confirm Password</b></label>
-                    <input type="password" #ConfirmPassword ngModel name="ConfirmPassword" class="form-control"
+                    <input type="password"  [(ngModel)]=users.ConfirmPassword name="ConfirmPassword" class="form-control"
                         placeholder="Confirm Password" required>
                 </div>
                 <div class="form-group">
                     <button mat-raised-button type="submit" class="btn btn-success btn-lg btn-block"
-                        [disabled]="!userRegistrationForm.valid"><i class="fa fa-plus"
+                        [disabled]="!userRegistrationForm.valid" (click)="onSubmit(userRegistrationForm)"><i class="fa fa-plus"
                         aria-hidden="true"></i> Sign Up</button>
                     <p style="text-align: center">Already have an account? <a routerLink="/login"
                             style="color:dodgerblue">Sign In</a></p>

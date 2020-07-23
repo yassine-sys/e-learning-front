@@ -108,15 +108,16 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignupService } from './sign-up/signup.service';
+import { QuizlistedComponent } from './quizlisted/quizlisted.component';
+import { QuizPassComponent } from './quiz-pass/quiz-pass.component';
 
 
 
 const appRoutes: Routes = [
 {
     path: 'quiz-dashboard', component: QuizListComponent
-}/*,{
-    path: 'create-quiz/:CourseID', component: CreateQuizComponent
-}*/,{ 
+},{ 
     path: 'quiz/delete/:QuizID', component: QuizDeleteComponent
 },{ 
     path: 'quiz/update/:QuizID', component: QuizUpdateComponent
@@ -168,13 +169,12 @@ const appRoutes: Routes = [
     path: 'user-exams/:Id', component: UsersExamsComponent
 },{
     path: 'business-unit', component: BusinessUnitComponent
-},//{path:'user-profile' , component:UserProfileComponent},
+},
 {
     path: 'business-unit/:id', component: DepartmentComponent
 },
 {path: 'home', component: HomeComponent,canActivate:[AuthGuard]},
-//{path: 'login', component: HomeComponent},
-//{path: 'sign-up', component: SignUpComponent}
+{path: 'sign-up', component: SignUpComponent}
 
 
 
@@ -269,6 +269,9 @@ const appRoutes: Routes = [
     LoginComponent,
     HomeComponent,
     SignUpComponent,
+    QuizListComponent,
+    QuizlistedComponent,
+    QuizPassComponent,
     
 
   ],
@@ -276,7 +279,7 @@ const appRoutes: Routes = [
     
     UploadFileService, RepositoryService,CourseService, 
     SectionService, DepartmentService, ChapterService,EnvironmentUrlService,
-    BusinessUnitService,DepartmentService,UserService,AuthGuard,
+    BusinessUnitService,DepartmentService,AuthGuard,SignupService,
     {
      provide : HTTP_INTERCEPTORS,
      useClass : AuthInterceptor,

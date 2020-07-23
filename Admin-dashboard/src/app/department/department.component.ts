@@ -75,7 +75,7 @@ export class DepartmentComponent implements OnInit {
       let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
 
       this.resetForm(form);
-     // this.list();
+      this.list();
 
     })
 

@@ -72,7 +72,7 @@ export class CreateExamOptionComponent implements OnInit {
      this.option.OpID= optionFormValue.QuesID;
      this.option.values= optionFormValue.values;
      this.option.OptionText= optionFormValue.OptionText;
-     this.option.Questions = this.tab;
+     //this.option.Questions = this.tab;
      let apiurl ='api/Options'
      this.repository.create(apiurl,this.option)
       .subscribe(res => {       
