@@ -91,7 +91,7 @@ public updateExam(examFormValue) {
  
 private executeExamUpdate(examFormValue) {
 
-  this.exam.CourseID = examFormValue.CourseID;
+ // this.exam.CourseID = examFormValue.CourseID;
   this.exam.Title = examFormValue.Title;
 
   let apiUrl = `api/Exams/${this.Examid}`;

@@ -8,7 +8,9 @@
                 <div class="card card-chart " style="height: 22rem;">
                     <div class="card-header text-center ">
                        <!-- <img class="ct-chart" id="AngularChart" src="../../../assets/img/angular.png"> -->
-                       <img class="ct-chart img-fluid"  [src]="item.imageUrl" height="100" width="200"  alt="">
+                      <!-- <link (click)="onSelect(course)">-->
+                       <img class="ct-chart img-fluid"  [src]="item.imageUrl" height="100" width="200"  alt="" >
+                    <!-- </link>-->
                     </div>
                    <div class="card-body">
                         <h4 class="card-title">{{item.title}}</h4>
@@ -20,7 +22,7 @@
                         <div class="stats">
                             <a routerLink='/course-quiz/{{item.CourseID}}' > <i class="fa fa-plus" style="color: rgb(107, 61, 180);"></i> New Quiz </a>
                             <a routerLink='/course-exam/{{item.CourseID}}' style="padding-left: 3rem;" > <i class="fa fa-plus" style="color: rgb(107, 61, 180);"></i> New Exam </a>
-                            <a routerLink='/course-passquiz/{{item.CourseID}}' style="padding-left: 3rem;" > <i class="fa fa-plus" style="color: rgb(107, 61, 180);"></i> Quiz </a>
+
 
                         </div>
                     </div>

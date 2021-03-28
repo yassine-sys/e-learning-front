@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import Question from 'app/shared/models/Question';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ readonly rootUrl = 'https://localhost:44352';
     
     
     return this.http.delete('https://localhost:44352/api/question/'+QuesID);
+  }
+  questionlist(QuizID:any): Observable<Array<Question>>{
+    return this.http.get<Array<Question>>('https://localhost:44352/api/question/GetQuestionsByQuiz/'+QuizID);
+
   }
 }

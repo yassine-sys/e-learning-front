@@ -28,4 +28,11 @@ readonly rootUrl = 'https://localhost:44352';
     
     return this.http.delete('https://localhost:44352/api/quiz/'+QuizID);
   }
+  getallquizzes(){
+    return this.http.get(this.rootUrl+'/api/quiz')
+  }
+  getquizbuid(QuizID:any){
+    return this.http.get('https://localhost:44352/api/quiz/'+QuizID);
+
+  }
 }

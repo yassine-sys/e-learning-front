@@ -50,6 +50,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { QuizlistedComponent } from './quizlisted/quizlisted.component';
 import { AuthGuarde } from './auth/auth.guarde';
 import { QuizPassComponent } from './quiz-pass/quiz-pass.component';
+import { ExamPassComponent } from './exam-pass/exam-pass.component';
+import { ExamlistedComponent } from './examlisted/examlisted.component';
 
 const routes: Routes = [
     {
@@ -153,6 +155,10 @@ const routes: Routes = [
         {path:'course-passquiz/:id',component:QuizlistedComponent},
         {path:'myquiz/:id',component:QuizPassComponent},            
         { path: 'file-upload', component: FileUploadComponent },
+        {path:'course-examen/:id',component:ExamlistedComponent}, 
+        {path:'myexam/:id',component:ExamPassComponent},            
+           
+
         ]
     }]
 

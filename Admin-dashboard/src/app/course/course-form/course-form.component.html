@@ -21,7 +21,7 @@
     
     <select class="custom-select" id="dep" formControlName="DepartmentID">
       <option disabled value="" >Choose the Department</option>
-      <option *ngFor="let item of DepartmentList"  value="{{item.DepartmentID}}">{{item.Name}}</option>
+      <option *ngFor="let item of DepartmentList"  value="{{item.Id}}">{{item.Name}}</option>
      
     </select>
   </div>

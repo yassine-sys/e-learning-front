@@ -14,6 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {YouTubePlayerModule} from '@angular/youtube-player';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -111,6 +112,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignupService } from './sign-up/signup.service';
 import { QuizlistedComponent } from './quizlisted/quizlisted.component';
 import { QuizPassComponent } from './quiz-pass/quiz-pass.component';
+import { ExamPassComponent } from './exam-pass/exam-pass.component';
+import { ExamlistedComponent } from './examlisted/examlisted.component';
 
 
 
@@ -196,6 +199,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
+    MatCheckboxModule,
     //MatIconModule,
     ReactiveFormsModule,
     HttpModule,
@@ -272,6 +276,8 @@ const appRoutes: Routes = [
     QuizListComponent,
     QuizlistedComponent,
     QuizPassComponent,
+    ExamPassComponent,
+    ExamlistedComponent,
     
 
   ],

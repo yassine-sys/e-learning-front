@@ -24,4 +24,8 @@ readonly rootUrl = 'https://localhost:44352';
     
     return this.http.delete('https://localhost:44352/api/exam/'+ExamID);
   }
+  exambyid(ExamID:any){
+    return this.http.get('https://localhost:44352/api/exam/'+ExamID);
+
+  }
 }

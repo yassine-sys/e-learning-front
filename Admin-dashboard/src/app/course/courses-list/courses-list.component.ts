@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'app/shared/course.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { Image } from 'app/shared/models/image';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
  
 @Component({
   selector: 'app-courses-list',
@@ -67,7 +68,7 @@ export class CoursesListComponent implements OnInit {
     
   }
   onSelect(course){
-    this.router.navigate(['/course-quiz',course.Id])
+    this.router.navigate(['/course-list',course.Id])
 
   }
 

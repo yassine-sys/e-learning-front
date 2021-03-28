@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import Option from 'app/shared/models/Option';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ readonly rootUrl = 'https://localhost:44352';
     
     
     return this.http.delete('https://localhost:44352/api/option/'+OpID);
+  }
+  optionlist(QuesId:any): Observable<Array<Option>>{
+    return this.http.get<Array<Option>>('https://localhost:44352/api/option/OptionByQuestion/'+QuesId);
+
   }
 
 }

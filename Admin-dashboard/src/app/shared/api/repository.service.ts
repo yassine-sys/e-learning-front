@@ -16,7 +16,7 @@ export class RepositoryService {
   public OPTION_API = `${this.API}/Options`;
   public QUESTION_API = `${this.API}/Questions`;
   public EXAM_API = `${this.API}/Exams`;
-  public RESULT_API = `${this.API}/Results`;
+  public RESULT_API = `${this.API}/quizResult`;
   public COURSES_API = `${this.API}/Courses`;
   public USERS_API = `${this.API}/Account`;
 

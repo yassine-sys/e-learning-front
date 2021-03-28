@@ -54,7 +54,7 @@ public doFilter = (value: string) => {
   
   public redirectToCoursePage (idc : any) {
 
-    this.router.navigate([`/chapters-list/${idc}`]);
+    this.router.navigate([`/course-quiz/${idc}`]);
     }
 
 }
