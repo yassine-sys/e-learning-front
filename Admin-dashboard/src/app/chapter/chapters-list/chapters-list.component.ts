@@ -1,10 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChapterService } from 'app/shared/chapter.service';
-import { CourseService } from 'app/shared/course.service';
-import { Chapter } from 'app/shared/models/chapter';
-import { Course } from 'app/shared/models/Course';
-import { SectionService } from 'app/shared/section.service';
+import { SuccessDialogComponent } from 'app/shared/dialogs/success-dialog/success-dialog.component';
+import { Observable } from 'rxjs';
+import { Chapter } from './chapter.model';
+import { ChapterService } from './chapter.service';
 
 @Component({
   selector: 'app-chapters-list',
@@ -12,17 +14,32 @@ import { SectionService } from 'app/shared/section.service';
   styleUrls: ['./chapters-list.component.css']
 })
 export class ChaptersListComponent implements OnInit {
-  ChapterList=[];
+  /*ChapterList=[];
   courseID = "" ;
   ChapterDetailList:Array<Chapter>=[];
   course:[];
-  section : [];
+  section : [];*/
+  public CourseId;
+  private dialogConfig;
+  chapter:Chapter
+  test=new Chapter()
+  chapters:any=[];
 
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private chapterService:ChapterService,
+    private http:HttpClient
+    ,private dialog: MatDialog
 
-  constructor(private router: Router,private route: ActivatedRoute,private chapterService:ChapterService,private courseService:CourseService,private sectionService:SectionService) { }
+    /*,private courseService:CourseService,private sectionService:SectionService*/) { }
 
   ngOnInit(): void {
-    this.courseID = this.route.snapshot.paramMap.get('id');
+    this.CourseId=this.route.snapshot.paramMap.get('id');
+    console.log(this.CourseId)
+    this.resetForm()
+    this.list()
+
+   /* this.courseID = this.route.snapshot.paramMap.get('id');
     console.log (this.courseID);
 
     this.chapterService.getChaptersByCourseID(this.courseID)
@@ -91,8 +108,67 @@ export class ChaptersListComponent implements OnInit {
       console.log("deleted");
       this.router.navigate(['/courses-list']);
       //alert('are you sure you want to delete this course');
-    })
+    })*/
 
   }
+  resetForm(form?:NgForm){
+    if (form!=null)
+    form.reset();
+    this.chapter={
+      Id:0,
+      title:'',
+      Description:''
+    }
+  }
+
+  isShow=true;
+  id:number;
+  toggledisplay(id){
+    this.isShow=!this.isShow;
+    this.id=id;
+  }
+
+  onSubmit(form:NgForm,CourseId:any){
+    this.chapterService.addChapter(form.value,this.CourseId).subscribe((res:any)=>{
+      this.chapter=res;
+      console.log("test");
+      let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+
+      this.resetForm(form);
+      this.list()
+
+
+    })
+   // this.router.navigate(['/business-unit-list'])
+
+
+
+  }
+
+  chapterlist(CourseId:any): Observable<Array<Chapter>>{
+    return this.http.get<Array<Chapter>>('https://localhost:44352/api/chapter/course/'+CourseId)
+
+  }
+  list(){
+    this.chapterlist(this.CourseId).subscribe((data: any) => {
+      this.chapters=data
+      console.log(data);
+    });
+
+  }
+
+  onDelete(ChapterId:any){
+    this.chapterService.onDelete(ChapterId).subscribe(res=>
+      {
+        this.chapters=res;
+        //let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+
+        this.list();
+
+        
+      }
+      )  
+  }
+    
 
 }

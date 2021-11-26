@@ -1,74 +1,41 @@
-<div class="main-content">
-    <div class="container-fluid">
-
-        <div class="col-md-12 left">
-            <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">  
-                      <li class="breadcrumb-item active" aria-current="page"><a routerLink='/courses-list'>{{ChapterDetailList[0]?.course.title}} /</a></li>
-                    </ol>
-                  </nav>
-            </div>
-            <a routerLink='/chapter-form/{{courseID}}' class="btn btn-info"><i class="fa fa-plus"></i> Add Chapter</a>
-            <a routerLink='/edit-course/{{courseID}}' class="btn btn-success"><i class="fa fa-edit"></i> Edit Course</a>
-            <a routerLink='/create-quiz/{{courseID}}' class="btn btn-success"><i class="fa fa-edit"></i> Create a new Quiz</a>
-            <button  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  ><i class="fa fa-trash"></i> Delete Course</button>
+<form #ChapterForm="ngForm">
+  <div id="haha" class="container">
+    <div class="main-content">
+      <section fxLayout="row wrap" fxLayoutAlign="center center">
+       
+        <div class="form-group">
+          <label><b>New Chapter</b></label>
+          <input [(ngModel)]="test.title" type="text" name="title" placeholder="Enter a new Chapter" required>
         </div>
-        <!-- Button trigger modal -->
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="form-group">
+          <input [(ngModel)]="test.Description" type="text" name="Description" placeholder="Enter a new Chapter"
+            required>
         </div>
-        <div class="modal-body">
-          Are you Sure you want to Delete this course?
+        <div class="form-group">
+          <button (click)="onSubmit(ChapterForm)" class="btn btn-success btn-lg btn-block"><i id="eye"
+              class="fa fa-plus" aria-hidden="true"></i> Add</button>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="Deletecourse(courseID)" data-dismiss="modal">Delete</button>
-        </div>
-      </div>
+      </section>
     </div>
   </div>
-       <!---- <div class="row ">
-            <h1>
-                {{ChapterDetailList[0].course.title}}
-            </h1>
-            <p></p>
-        </div>-->
-        <div class="row " *ngIf="ChapterDetailList[0]?.ChapterID !null">
-            
-            <div class="col-md-4 " *ngFor="let item of ChapterDetailList" >
+</form>
 
-                <a routerLink='/sections-list/{{item.ChapterID}}'>
-                
-                <div class="card card-chart " style="height: 18rem;">
-                    <div class="card-header text-center ">
-                       <!-- <img class="ct-chart" id="AngularChart" src="../../../assets/img/angular.png"> -->
-                       <!--<img class="ct-chart img-fluid"  [src]="item.imageUrl" height="200" width="200"  alt="">-->
-                    </div>
-                   <div class="card-body">
-                        <h3 class="card-title">{{item.title}}</h3>
-                        <h4 class="card-category">
-                           {{item.Description }} </h4>
-                    <br>
-                     <h5 *ngFor="let itemS of item.Sections "  style="color: darkviolet;">{{itemS.title}}</h5>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">access_time</i> updated 4 minutes ago
-                        </div>
-                    </div>
-                </div>
-            </a>
-            </div>
-        
-            
-        </div>
+<div class="card text-center" style="width: 70%; margin-top: 10%; align-items: center;" *ngFor="let chapitre of chapters">
+  <div class="card-header">
+   
   </div>
+  <div class="card-body" >
+    <h5 class="card-title">{{chapitre.title}}</h5>
+    <p class="card-text"> {{chapitre.Description}}</p>
+    <a class="btn btn-primary" (click)=toggledisplay(chapitre.Id) >Delete</a>
+  </div>
+
+  <div id="test" [hidden]="isShow" class="container">Are you sure you want to remove the chapter {{id}}
+    <td><button (click)="onDelete(id)" style="background-color: red;"><b>Yes</b></button></td>
+    <td><button (click)=toggledisplay(id) style="background-color:green;"><b>Nooo</b></button></td>
+  
+  </div>
+  
+  
+</div>
+

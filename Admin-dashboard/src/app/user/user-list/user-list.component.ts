@@ -28,7 +28,7 @@ export class UserListComponent implements OnInit {
   users: string[]; 
   user:User
 
-  displayedColumns: string[] = ['Id', 'FirstName', 'LastName','Email','UserName','onDelete'];
+  displayedColumns: string[] = ['Id','Email','UserName','onDelete'];
   dataSource = new MatTableDataSource<User>();
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -39,7 +39,7 @@ export class UserListComponent implements OnInit {
     })
   }
   userlist(): Observable<Array<User>>{
-   return this.http.get<Array<User>>('https://localhost:44306/api/Account/users')
+   return this.http.get<Array<User>>('https://localhost:44352/api/Account/users')
   
   }
   list(){
@@ -62,6 +62,7 @@ export class UserListComponent implements OnInit {
 
    Logout() {
     localStorage.removeItem('userToken');
+    this.router.navigate(['/signin']);
   }
 
 }

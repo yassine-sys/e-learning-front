@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ChapterService {
 
-  public ApiURL = 'https://localhost:44306/api';
+  public ApiURL = 'https://localhost:44352/api';
   
   constructor(private http: HttpClient) { }
 

@@ -1,0 +1,17 @@
+<div class="main-content">
+    <div class="card text-center">
+        <div class="card-header">
+          
+        </div>
+<div class="card-body"  *ngFor="let quiz of quize">
+    <h5 class="card-title">{{quiz.Title}} </h5>
+    <!-- <p class="card-text" *ngFor="let res of result">{{res.Score}}</p> -->
+    <a class="btn btn-primary" (click)="onSelect(quiz)">View Results</a>
+  </div>
+
+  <div class="card-body"  *ngFor="let exam of exam">
+    <h5 class="card-title">{{exam.Title}} </h5>
+    <!-- <p class="card-text" *ngFor="let res of result">{{res.Score}}</p> -->
+    <a class="btn btn-primary" (click)="onSelected(exam)">View Results</a>
+  </div>
+  </div>

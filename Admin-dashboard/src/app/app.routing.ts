@@ -52,6 +52,10 @@ import { AuthGuarde } from './auth/auth.guarde';
 import { QuizPassComponent } from './quiz-pass/quiz-pass.component';
 import { ExamPassComponent } from './exam-pass/exam-pass.component';
 import { ExamlistedComponent } from './examlisted/examlisted.component';
+import { ChaptersListComponent } from './chapter/chapters-list/chapters-list.component';
+import { ResultsComponent } from './results/results.component';
+import { ViewresultsComponent } from './viewresults/viewresults.component';
+import { ViewexamresultsComponent } from './viewexamresults/viewexamresults.component';
 
 const routes: Routes = [
     {
@@ -122,7 +126,7 @@ const routes: Routes = [
         }, {
             path: 'exam/:QuesID/option-list', component: ExamOptionListComponent
         }, {
-            path: 'users-dashboard', component: UsersDashboardComponent
+            path: 'users-dashboard', component: UserListComponent
         }, {
             path: 'user-quizzes/:Id', component: UsersQuizzesComponent
         }, {
@@ -157,6 +161,11 @@ const routes: Routes = [
         { path: 'file-upload', component: FileUploadComponent },
         {path:'course-examen/:id',component:ExamlistedComponent}, 
         {path:'myexam/:id',component:ExamPassComponent},            
+        {path:'course-chapter/:id',component:ChaptersListComponent}, 
+        {path:'results',component:ResultsComponent}, 
+        {path:'results/:id',component:ViewresultsComponent}, 
+        {path:'resultsexam/:id',component:ViewexamresultsComponent}, 
+
            
 
         ]
@@ -167,8 +176,9 @@ const routes: Routes = [
         CommonModule,
         BrowserModule,
         RouterModule.forRoot(routes, {
-            useHash: true
-        })
+    useHash: true,
+    relativeLinkResolution: 'legacy'
+})
     ],
     exports: [
     ],

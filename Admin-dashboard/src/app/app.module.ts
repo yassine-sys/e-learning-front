@@ -114,6 +114,9 @@ import { QuizlistedComponent } from './quizlisted/quizlisted.component';
 import { QuizPassComponent } from './quiz-pass/quiz-pass.component';
 import { ExamPassComponent } from './exam-pass/exam-pass.component';
 import { ExamlistedComponent } from './examlisted/examlisted.component';
+import { ResultsComponent } from './results/results.component';
+import { ViewresultsComponent } from './viewresults/viewresults.component';
+import { ViewexamresultsComponent } from './viewexamresults/viewexamresults.component';
 
 
 
@@ -176,6 +179,11 @@ const appRoutes: Routes = [
 {
     path: 'business-unit/:id', component: DepartmentComponent
 },
+{
+    path: 'results/:id', component: ViewresultsComponent
+},
+{path:'resultsexam/:id',component:ViewexamresultsComponent}, 
+
 {path: 'home', component: HomeComponent,canActivate:[AuthGuard]},
 {path: 'sign-up', component: SignUpComponent}
 
@@ -212,7 +220,7 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatSelectModule,
     MatDialogModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     AppRoutingModule,
     YouTubePlayerModule,
     PdfViewerModule,
@@ -278,6 +286,9 @@ const appRoutes: Routes = [
     QuizPassComponent,
     ExamPassComponent,
     ExamlistedComponent,
+    ResultsComponent,
+    ViewresultsComponent,
+    ViewexamresultsComponent,
     
 
   ],
